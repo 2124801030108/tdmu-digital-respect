@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064E3B"/>
+      <stop offset="60%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="lockG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="560" rx="24" fill="url(#p2Bg)"/>
+  <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+
+  <rect x="30" y="30" width="130" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="95" y="49" fill="#ffffff" font-family="'Be Vietnam Pro', sans-serif" font-weight="700" font-size="11" text-anchor="middle">AN TOÀN DỮ LIỆU</text>
+
+  <g transform="translate(145, 130)">
+    <rect x="15" y="55" width="80" height="70" rx="16" fill="url(#lockG)" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.3))"/>
+    <path d="M30 55 V35 C30 18 80 18 80 35 V55" fill="none" stroke="#FEF3C7" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="55" cy="85" r="7" fill="#78350F"/>
+    <path d="M55 85 L55 102" stroke="#78350F" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(30, 360)">
+    <rect width="340" height="150" rx="16" fill="rgba(0,0,0,0.25)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="170" y="40" fill="#FDE68A" font-family="Lora, Georgia, serif" font-weight="700" font-size="22" text-anchor="middle">BẢO VỆ RIÊNG TƯ</text>
+    <text x="170" y="68" fill="#ffffff" font-family="'Be Vietnam Pro', sans-serif" font-weight="600" font-size="16" text-anchor="middle">KHÔNG GỬI ẢNH NHẠY CẢM</text>
+    <text x="170" y="100" fill="#E6FFFA" font-family="'Be Vietnam Pro', sans-serif" font-weight="400" font-size="13" text-anchor="middle">Dữ liệu cá nhân một khi bị phát tán sẽ không thể thu hồi.</text>
+    <text x="170" y="122" fill="#A7F3D0" font-family="'Be Vietnam Pro', sans-serif" font-weight="500" font-size="12" text-anchor="middle">Đại học Thủ Dầu Một – Tôn trọng quyền riêng tư</text>
+  </g>
+</svg>

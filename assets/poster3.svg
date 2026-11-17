@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C1D95"/>
+      <stop offset="60%" stop-color="#6D28D9"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="heartG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E"/>
+      <stop offset="100%" stop-color="#FB7185"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="560" rx="24" fill="url(#p3Bg)"/>
+  <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+
+  <rect x="30" y="30" width="120" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="90" y="49" fill="#ffffff" font-family="'Be Vietnam Pro', system-ui, sans-serif" font-weight="700" font-size="11" text-anchor="middle">TƯƠNG THÂN</text>
+
+  <g transform="translate(140, 140)">
+    <path d="M60 25 C60 10 40 0 25 15 C10 0 -10 10 -10 25 C-10 55 25 75 25 75 C25 75 60 55 60 25 Z" fill="url(#heartG)" transform="scale(1.9) translate(-5, -5)" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.3))"/>
+  </g>
+
+  <g transform="translate(30, 360)">
+    <rect width="340" height="150" rx="16" fill="rgba(0,0,0,0.25)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="170" y="40" fill="#FBCFE8" font-family="'Be Vietnam Pro', serif" font-weight="700" font-size="20" letter-spacing="0" text-anchor="middle">LÊN TIẾNG BẢO VỆ</text>
+    <text x="170" y="68" fill="#ffffff" font-family="'Be Vietnam Pro', sans-serif" font-weight="600" font-size="16" text-anchor="middle">ĐỪNG ĐỨNG NGOÀI CUỘC</text>
+    <text x="170" y="100" fill="#EDE9FE" font-family="'Be Vietnam Pro', sans-serif" font-weight="400" font-size="13" text-anchor="middle">Sự im lặng của người chứng kiến là tiếp tay cho bắt nạt.</text>
+    <text x="170" y="122" fill="#DDD6FE" font-family="'Be Vietnam Pro', sans-serif" font-weight="500" font-size="12" text-anchor="middle">Đại học Thủ Dầu Một – Lan tỏa lòng nhân ái số</text>
+  </g>
+</svg>

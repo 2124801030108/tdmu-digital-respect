@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2540"/>
+      <stop offset="60%" stop-color="#075A94"/>
+      <stop offset="100%" stop-color="#0B7BC4"/>
+    </linearGradient>
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2B84B"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="560" rx="24" fill="url(#p1Bg)"/>
+  <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <circle cx="200" cy="200" r="100" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <rect x="30" y="30" width="100" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="80" y="49" fill="#ffffff" font-family="'Be Vietnam Pro', sans-serif" font-weight="700" font-size="11" text-anchor="middle">TDMU RESPECT</text>
+
+  <g transform="translate(200, 200)">
+    <circle cx="0" cy="0" r="65" fill="rgba(255,255,255,0.06)"/>
+    <path d="M-40 -40 L40 40 M40 -40 L-40 40" stroke="#D6455D" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#D6455D" stroke-width="6"/>
+    <path d="M-15 0 C-15 -15 15 -15 15 0 C15 15 -15 15 -15 0" fill="#fff" opacity="0.9"/>
+  </g>
+
+  <g transform="translate(30, 360)">
+    <rect width="340" height="150" rx="16" fill="rgba(0,0,0,0.25)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="170" y="40" fill="url(#accent1)" font-family="Lora, Georgia, serif" font-weight="700" font-size="22" text-anchor="middle">DỪNG LẠI 3 GIÂY</text>
+    <text x="170" y="68" fill="#ffffff" font-family="'Be Vietnam Pro', sans-serif" font-weight="600" font-size="16" text-anchor="middle">TRƯỚC KHI BÌNH LUẬN</text>
+    <text x="170" y="100" fill="#D3E3F0" font-family="'Be Vietnam Pro', sans-serif" font-weight="400" font-size="13" text-anchor="middle">Một câu nói vô tình có thể để lại tổn thương sâu sắc.</text>
+    <text x="170" y="122" fill="#9FB8CE" font-family="'Be Vietnam Pro', sans-serif" font-weight="500" font-size="12" text-anchor="middle">Đại học Thủ Dầu Một – Chung tay vì văn hóa mạng văn minh</text>
+  </g>
+</svg>

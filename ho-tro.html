@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đầu Mối Cứu Trợ & Đường Dây Nóng – TDMU Digital Respect</title>
+<meta name="description" content="Đề tài Báo cáo môn học: Website phòng chống bạo lực mạng sinh viên Thủ Dầu Một – Nhóm 17. GVHD: Võ Tấn Bản.">
+<meta name="theme-color" content="#0B7BC4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Lora:wght@600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="hd" id="top">
+  <div class="pg" id="pg"></div>
+  <div class="w">
+    <a class="lg" href="index.html">
+      <img class="tdmu-header-logo" src="assets/tdmu-logo.png" alt="Logo Trường Đại học Thủ Dầu Một" width="40" height="40">
+      <div class="lg-meta">
+        <span class="lg-name">TDMU Digital Respect</span>
+        <span class="lg-sub">Phòng chống bạo lực mạng</span>
+      </div>
+    </a>
+    <nav class="desktop-nav" aria-label="Điều hướng chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="quet-tu.html">Quét từ</a>
+      <a href="tinh-huong.html">Tình huống</a>
+      <a href="nhan-dien.html">Nhận diện</a>
+      <a href="ung-pho.html">Ứng phó</a>
+      <a href="an-toan-so.html">An toàn số</a>
+      <a href="poster.html">Poster</a>
+      <a href="chung-nhan.html">Chứng nhận</a>
+      <a href="ho-tro.html" class="on">Hỗ trợ</a>
+      <a href="phap-luat.html">Pháp luật</a>
+    </nav>
+    <div class="hd-actions">
+      <button class="btn-sos open-sos" type="button" aria-label="Cứu trợ khẩn cấp">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span class="sos-label">SOS Khẩn cấp</span>
+      </button>
+      <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" aria-label="Mở menu điều hướng" aria-expanded="false">
+        <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <div id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="Menu di động">
+    <div class="mobile-nav-header">
+      <div class="mobile-nav-brand">
+        <img class="tdmu-header-logo" src="assets/tdmu-logo.png" alt="Logo TDMU" width="34" height="34">
+        <div>
+          <b>TDMU Digital Respect</b>
+          <span>Phòng chống bạo lực mạng SV TDMU</span>
+        </div>
+      </div>
+      <button id="closeMobileNavBtn" class="close-mobile-nav" type="button" aria-label="Đóng menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-list">
+      <a class="mobile-nav-link" href="index.html">
+        <span class="mn-icon">🏛️</span>
+        <div class="mn-content">
+          <b>Trang chủ & Tổng quan</b>
+          <span>Đề tài Báo cáo Nhóm 17 – TDMU</span>
+        </div>
+      </a>
+      <a class="mobile-nav-link" href="quet-tu.html">
+        <span class="mn-icon">🔍</span>
+        <div class="mn-content">
+          <b>Quét từ ngữ độc hại</b>
+          <span>Phát hiện công kích & xúc phạm</span>
+        </div>
+      </a>
+      <a class="mobile-nav-link" href="tinh-huong.html">
+        <span class="mn-icon">💬</span>
+        <div class="mn-content">
+          <b>10 Tình huống mô phỏng</b>
+          <span>Thực hành xử lý chat thực tế</span>
+        </div>
+      </a>
+      <a class="mobile-nav-link" href="nhan-dien.html">
+        <span class="mn-icon">📝</span>
+        <div class="mn-content">
+          <b>Nhận diện & Trắc nghiệm</b>
+          <span>10 câu hỏi kiểm tra kiến thức</span>
+        </div>
+      </a>
+      <a class="mobile-nav-link" href="ung-pho.html">
+        <span class="mn-icon">🛡️</span>
+        <div class="mn-content">
+          <b>Ứng phó & Lập chứng cứ</b>
+          <span>Mẫu biên bản gửi Nhà trường</span>
+        </div>
+      </a>
+      <a class="mobile-nav-link" href="an-toan-so.html">
+        <span class="mn-icon">🔒</span>
+        <div class="mn-content">
+          <b>Rà soát An toàn số</b>
+          <span>4 lớp bảo vệ tài khoản SV</span>
+        </div>
+      </a>
+      <a class="mobile-nav-link" href="poster.html">
+        <span class="mn-icon">🎨</span>
+        <div class="mn-content">
+          <b>Thư viện Poster số</b>
+          <span>Ấn phẩm tuyên truyền học đường</span>
+        </div>
+      </a>
+      <a class="mobile-nav-link" href="chung-nhan.html">
+        <span class="mn-icon">🎓</span>
+        <div class="mn-content">
+          <b>Cấp giấy chứng nhận</b>
+          <span>Minh chứng tích lũy +5 ĐRL</span>
+        </div>
+      </a>
+      <a class="mobile-nav-link on" href="ho-tro.html">
+        <span class="mn-icon">📞</span>
+        <div class="mn-content">
+          <b>Hỗ trợ & Đường dây nóng</b>
+          <span>Phòng CTSV, Cố vấn học tập</span>
+        </div>
+      </a>
+      <a class="mobile-nav-link" href="phap-luat.html">
+        <span class="mn-icon">⚖️</span>
+        <div class="mn-content">
+          <b>Cơ sở pháp lý & Nội quy</b>
+          <span>Văn hóa ứng xử số sinh viên</span>
+        </div>
+      </a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a class="btn-sos-call" href="tel:02743822058">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Gọi ngay CTSV TDMU: 0274.3822.058
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="page-header">
+  <div class="w">
+    <div class="badge">Công cụ Số 08 • Trợ giúp 24/7</div>
+    <h1>Đầu Mối Cứu Trợ & Đường Dây Nóng Bảo Vệ Sinh Viên</h1>
+    <p>Tổng hợp các kênh liên hệ khẩn cấp, đường dây nóng quốc gia và đầu mối tiếp nhận, tư vấn tâm lý, can thiệp xử lý tại Trường Đại học Thủ Dầu Một.</p>
+  </div>
+</div>
+
+<section id="hotro">
+  <div class="w">
+    <div class="sh">
+      <h2>Kênh liên hệ khẩn cấp & Đầu mối hỗ trợ</h2>
+      <p>Khi gặp sự cố bị xúc phạm, đe dọa hoặc bạo lực mạng nghiêm trọng, bạn hãy kết nối ngay với các cơ quan và đơn vị chức năng sau đây.</p>
+    </div>
+
+    <div class="hl3">
+      <div class="card">
+        <span class="big">113</span>
+        <h3>Công an Nhân dân</h3>
+        <p>Khi bị đe dọa tính mạng, tống tiền, bôi nhọ nghiêm trọng hoặc có dấu hiệu tội phạm hình sự trực tuyến.</p>
+        <a class="btn d" href="tel:113" style="margin-top:14px;width:100%;text-align:center">Gọi ngay 113</a>
+      </div>
+
+      <div class="card">
+        <span class="big">111</span>
+        <h3>Tổng đài Quốc gia BVTE</h3>
+        <p>Tư vấn khủng hoảng tâm lý, hỗ trợ can thiệp các vụ bạo lực học đường và mạng xã hội miễn phí 24/7.</p>
+        <a class="btn" href="tel:111" style="margin-top:14px;width:100%;text-align:center">Gọi ngay 111</a>
+      </div>
+
+      <div class="card">
+        <span class="big" style="font-size:1.6rem">CTSV TDMU</span>
+        <h3>Phòng Công tác SV</h3>
+        <p>Tiếp nhận khiếu nại, phản ánh bạo lực mạng nội bộ học đường; tư vấn quy chế và hòa giải tại Phòng B.102.</p>
+        <a class="btn" href="tel:02743822058" style="margin-top:14px;width:100%;text-align:center">Gọi 0274.3822.058</a>
+      </div>
+
+      <div class="card">
+        <span class="big" style="font-size:1.6rem">Đoàn – Hội</span>
+        <h3>Đoàn Thanh niên</h3>
+        <p>Đồng hành, lắng nghe, kết nối hỗ trợ tâm lý và tham vấn giải pháp an toàn số cho sinh viên TDMU.</p>
+        <a class="btn" href="tel:02743834340" style="margin-top:14px;width:100%;text-align:center">Gọi 0274.3834.340</a>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:36px;box-shadow:var(--shadow-sm)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:36px;height:36px;border-radius:10px;background:var(--so);color:var(--tl);display:grid;place-items:center;font-size:1.1rem">🏛️</div>
+        <div>
+          <h3 style="margin:0;font-size:1.15rem">Quy trình Tiếp nhận & Xử lý Phản ánh Bạo lực Mạng tại TDMU</h3>
+          <span style="font-size:.82rem;color:var(--mu)">Địa chỉ trực tiếp: Phòng Công tác Sinh viên – Phòng B.102, Tòa nhà B (Số 06 Trần Văn Ơn, P. Phú Hòa, TP. Thủ Dầu Một)</span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px">
+        <div style="background:var(--bg);border:1px solid var(--ln);border-radius:12px;padding:16px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <span style="width:24px;height:24px;border-radius:50%;background:var(--tl);color:#fff;display:grid;place-items:center;font-size:.78rem;font-weight:700">1</span>
+            <b style="font-size:.95rem;color:var(--ink)">Tiếp nhận & Bảo mật</b>
+          </div>
+          <p style="font-size:.84rem;color:var(--mu);margin:0;line-height:1.55">Cán bộ chuyên trách tiếp nhận hồ sơ phản ánh qua hotline hoặc trực tiếp, cam kết bảo mật 100% thông tin cá nhân và hình ảnh của sinh viên.</p>
+        </div>
+
+        <div style="background:var(--bg);border:1px solid var(--ln);border-radius:12px;padding:16px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <span style="width:24px;height:24px;border-radius:50%;background:var(--tl);color:#fff;display:grid;place-items:center;font-size:.78rem;font-weight:700">2</span>
+            <b style="font-size:.95rem;color:var(--ink)">Xác minh & Tư vấn tâm lý</b>
+          </div>
+          <p style="font-size:.84rem;color:var(--mu);margin:0;line-height:1.55">Phòng CTSV phối hợp với Ban chủ nhiệm Khoa và Đoàn Thanh niên gặp gỡ, hỗ trợ tâm lý và xác minh tính xác thực của chứng cứ số.</p>
+        </div>
+
+        <div style="background:var(--bg);border:1px solid var(--ln);border-radius:12px;padding:16px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <span style="width:24px;height:24px;border-radius:50%;background:var(--tl);color:#fff;display:grid;place-items:center;font-size:.78rem;font-weight:700">3</span>
+            <b style="font-size:.95rem;color:var(--ink)">Hòa giải & Xử lý kỷ luật</b>
+          </div>
+          <p style="font-size:.84rem;color:var(--mu);margin:0;line-height:1.55">Yêu cầu đối tượng vi phạm gỡ bỏ bài viết, công khai xin lỗi; trường hợp nghiêm trọng chuyển Hội đồng kỷ luật xử lý theo quy chế trường.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;padding:10px 14px;background:var(--so);border-radius:8px;font-size:.82rem;color:var(--mu);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <span>⏰ Giờ làm việc: Thứ Hai đến Thứ Sáu (Sáng: 07h30 – 11h30 | Chiều: 13h00 – 17h00)</span>
+        <span>📧 Email tiếp nhận: congtacsinhvien@tdmu.edu.vn</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;box-shadow:var(--shadow-sm)">
+      <h3 style="margin-top:0">4 Bước Vàng Hành Động Ngay Khi Là Nạn Nhân Của Bạo Lực Mạng</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));gap:14px;margin-top:14px">
+        <div style="padding:14px;background:var(--bg);border-left:4px solid #EF4444;border-radius:8px">
+          <b style="color:#DC2626;display:block;margin-bottom:6px">1. Bình tĩnh tuyệt đối</b>
+          <span style="font-size:.84rem;color:var(--mu);line-height:1.5;display:block">Không đáp trả, không chửi bới lại kẻ công kích. Mọi lời tranh cãi công khai sẽ khiến đối tượng leo thang kích động.</span>
+        </div>
+        <div style="padding:14px;background:var(--bg);border-left:4px solid #F59E0B;border-radius:8px">
+          <b style="color:#D97706;display:block;margin-bottom:6px">2. Lưu giữ bằng chứng</b>
+          <span style="font-size:.84rem;color:var(--mu);line-height:1.5;display:block">Chụp toàn màn hình rõ ngày giờ, lưu link URL bài viết/trang cá nhân đối tượng và video quay lại đoạn chat đe dọa.</span>
+        </div>
+        <div style="padding:14px;background:var(--bg);border-left:4px solid #3B82F6;border-radius:8px">
+          <b style="color:#2563EB;display:block;margin-bottom:6px">3. Chặn & Báo cáo</b>
+          <span style="font-size:.84rem;color:var(--mu);line-height:1.5;display:block">Sử dụng tính năng Chặn (Block) và Báo cáo vi phạm (Report) trên Facebook, Zalo, TikTok để khóa tương tác tiêu cực.</span>
+        </div>
+        <div style="padding:14px;background:var(--bg);border-left:4px solid #10B981;border-radius:8px">
+          <b style="color:#059669;display:block;margin-bottom:6px">4. Lên tiếng tìm trợ giúp</b>
+          <span style="font-size:.84rem;color:var(--mu);line-height:1.5;display:block">Chia sẻ với Cố vấn học tập, người thân trong gia đình hoặc gọi ngay số điện thoại Phòng CTSV TDMU 0274.3822.058.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;box-shadow:var(--shadow-sm)">
+      <h3 style="margin-top:0">Câu Hỏi Thường Gặp (FAQ) Về An Toàn & Hỗ Trợ Sinh Viên</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+        <details class="faq-item" style="background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:12px 16px;cursor:pointer">
+          <summary style="font-weight:600;color:var(--ink);font-size:.92rem;outline:none">1. Tôi có bị lộ danh tính khi gửi thông tin báo cáo cho Nhà trường không?</summary>
+          <p style="margin:10px 0 0;font-size:.86rem;color:var(--mu);line-height:1.6">Không. Phòng Công tác Sinh viên và Ban Giám hiệu cam kết bảo mật tuyệt đối 100% danh tính, thông tin cá nhân và lớp học của sinh viên báo cáo sự việc theo đúng quy chế bảo vệ quyền riêng tư.</p>
+        </details>
+        <details class="faq-item" style="background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:12px 16px;cursor:pointer">
+          <summary style="font-weight:600;color:var(--ink);font-size:.92rem;outline:none">2. Kẻ bắt nạt sử dụng tài khoản ảo (clone) thì có tìm ra và xử lý được không?</summary>
+          <p style="margin:10px 0 0;font-size:.86rem;color:var(--mu);line-height:1.6">Hoàn toàn tìm ra được. Cơ quan chức năng An ninh mạng có thẩm quyền phối hợp với các nhà cung cấp mạng viễn thông và nền tảng xuyên biên giới truy vết địa chỉ IP kết nối, mã định danh thiết bị MAC và dấu vết số để xác định chính xác người đứng sau tài khoản ẩn danh.</p>
+        </details>
+        <details class="faq-item" style="background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:12px 16px;cursor:pointer">
+          <summary style="font-weight:600;color:var(--ink);font-size:.92rem;outline:none">3. Bị nói xấu, công kích trong nhóm chat kín (Messenger/Zalo) có bị xử lý không?</summary>
+          <p style="margin:10px 0 0;font-size:.86rem;color:var(--mu);line-height:1.6">Có. Dù là nhóm chat riêng tư, nếu nội dung xúc phạm nhân phẩm, lan truyền thông tin sai sự thật hoặc phát tán ảnh nhạy cảm bị rò rỉ hoặc người trong nhóm tố giác, đối tượng vẫn chịu chế tài kỷ luật học đường của TDMU và xử phạt hành chính theo quy định pháp luật.</p>
+        </details>
+        <details class="faq-item" style="background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:12px 16px;cursor:pointer">
+          <summary style="font-weight:600;color:var(--ink);font-size:.92rem;outline:none">4. Tôi cần làm gì ngay nếu bị tống tiền hoặc đe dọa tung ảnh nhạy cảm?</summary>
+          <p style="margin:10px 0 0;font-size:.86rem;color:var(--mu);line-height:1.6">Tuyệt đối không chuyển tiền và không thỏa hiệp vì kẻ xấu sẽ tiếp tục tống tiền lần sau. Hãy giữ nguyên đoạn chat làm bằng chứng, báo ngay cho Tổng đài 113 hoặc Công an địa phương và liên hệ hotline CTSV 0274.3822.058 để được hỗ trợ bảo vệ an toàn.</p>
+        </details>
+        <details class="faq-item" style="background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:12px 16px;cursor:pointer">
+          <summary style="font-weight:600;color:var(--ink);font-size:.92rem;outline:none">5. Tham gia chiến dịch và ký cam kết có được ghi nhận Điểm rèn luyện không?</summary>
+          <p style="margin:10px 0 0;font-size:.86rem;color:var(--mu);line-height:1.6">Có. Sinh viên hoàn thành bài kiểm tra nhận thức đạt yêu cầu và nhận chứng nhận số sẽ được ghi nhận minh chứng hoạt động phong trào với mức cộng +5 Điểm rèn luyện (Mục hoạt động vì cộng đồng học đường).</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="next-page-box">
+      <div>
+        <b style="font-size:1.05rem;color:var(--ink)">Bước tiếp theo:</b>
+        <p style="margin:4px 0 0;font-size:.88rem;color:var(--mu)">Tìm hiểu Cơ sở pháp lý & Các khung hình phạt đối với hành vi bạo lực mạng.</p>
+      </div>
+      <a class="btn" href="phap-luat.html">Xem Cơ sở Pháp lý →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="w">
+    <div class="fg">
+      <div>
+        <div class="footer-logo">
+          <img class="tdmu-header-logo" src="assets/tdmu-logo.png" alt="Logo Trường Đại học Thủ Dầu Một" width="44" height="44">
+          <div style="margin-left:6px">
+            <b style="display:block;font-size:1.05rem;color:#fff">TDMU Digital Respect</b>
+            <span style="font-size:.78rem;opacity:.8;display:block">Trường Đại học Thủ Dầu Một</span>
+          </div>
+        </div>
+        <p>Bộ công cụ trực quan hỗ trợ sinh viên Đại học Thủ Dầu Một nhận diện, phòng ngừa và ứng phó hiệu quả với bạo lực mạng.</p>
+      </div>
+      <div>
+        <b>Chuyên mục trọng tâm</b>
+        <a href="index.html">Trang chủ</a>
+        <a href="quet-tu.html">Quét ngôn từ độc hại</a>
+        <a href="tinh-huong.html">10 Tình huống mô phỏng</a>
+        <a href="nhan-dien.html">Nhận diện & Trắc nghiệm</a>
+        <a href="ung-pho.html">Ứng phó & Bằng chứng</a>
+        <a href="an-toan-so.html">Rà soát An toàn số</a>
+        <a href="poster.html">Poster truyền thông số</a>
+        <a href="chung-nhan.html">Cấp chứng nhận (+5 ĐRL)</a>
+        <a href="ho-tro.html">Hỗ trợ khẩn cấp</a>
+        <a href="phap-luat.html">Cơ sở pháp lý</a>
+      </div>
+      <div>
+        <b>Đề tài Báo cáo</b>
+        <span>Đề tài: Phòng chống bạo lực mạng SV TDMU</span>
+        <span>Nhóm thực hiện: Nhóm 17 (3 thành viên)</span>
+        <span>GVHD: Võ Tấn Bản</span>
+        <span>Số 06 Trần Văn Ơn, Phú Hòa, TP. Thủ Dầu Một</span>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <p style="margin:0;color:#A0C4E2;font-size:.86rem;text-align:center">© 2026 TDMU Digital Respect – Dự án vì giảng đường văn minh và không gian mạng an toàn sinh viên Đại học Thủ Dầu Một.</p>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="sosModal">
+  <div class="modal-box">
+    <button class="modal-close close-sos" type="button" aria-label="Đóng">&times;</button>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:44px;height:44px;border-radius:12px;background:#FEE2E2;display:grid;place-items:center;color:#DC2626">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div>
+        <h3 style="margin:0;color:#DC2626;font-size:1.3rem">Hỗ trợ khẩn cấp 24/7</h3>
+        <span style="font-size:.85rem;color:var(--mu)">Đừng chịu đựng một mình – Hãy liên hệ các kênh dưới đây ngay</span>
+      </div>
+    </div>
+
+    <div class="sos-card-call">
+      <div>
+        <b>113 – Công an Nhân dân</b>
+        <div style="font-size:.85rem;color:var(--mu)">Đe dọa tính mạng, tống tiền, làm nhục nghiêm trọng</div>
+      </div>
+      <a href="tel:113">Gọi 113</a>
+    </div>
+
+    <div class="sos-card-call">
+      <div>
+        <b>111 – Tổng đài Quốc gia</b>
+        <div style="font-size:.85rem;color:var(--mu)">Tư vấn tâm lý, bảo vệ thanh thiếu niên miễn phí 24/7</div>
+      </div>
+      <a href="tel:111" style="background:#0B7BC4">Gọi 111</a>
+    </div>
+
+    <div class="sos-card-call">
+      <div>
+        <b>Phòng CTSV – ĐH Thủ Dầu Một</b>
+        <div style="font-size:.85rem;color:var(--mu)">Tiếp nhận khiếu nại, hòa giải mâu thuẫn sinh viên (Số 06 Trần Văn Ơn)</div>
+      </div>
+      <a href="tel:02743822058" style="background:#075A94">0274.3822.058</a>
+    </div>
+
+    <div class="sos-card-call">
+      <div>
+        <b>Đoàn Thanh niên – Hội Sinh viên TDMU</b>
+        <div style="font-size:.85rem;color:var(--mu)">Đồng hành, tư vấn tâm lý và bảo vệ quyền lợi sinh viên</div>
+      </div>
+      <a href="tel:02743834340" style="background:#0B7BC4">0274.3834.340</a>
+    </div>
+
+    <div class="acts" style="margin-top:18px;justify-content:flex-end">
+      <button class="btn o close-sos" type="button">Đóng lại</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="campaignModal">
+  <div class="modal-box" style="max-width:680px">
+    <button class="modal-close close-campaign" type="button" aria-label="Đóng">&times;</button>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:48px;height:48px;border-radius:14px;background:#E0F2FE;display:grid;place-items:center;color:#0B7BC4;flex-shrink:0">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <h3 style="margin:0;color:var(--ink);font-size:1.35rem">Chiến dịch Văn hóa số TDMU 2026</h3>
+        <span style="font-size:.85rem;color:var(--mu)">Trường Đại học Thủ Dầu Một – "Giảng đường văn minh, không gian mạng an toàn"</span>
+      </div>
+    </div>
+
+    <div style="max-height:60vh;overflow-y:auto;padding-right:4px">
+      <p style="font-size:.92rem;line-height:1.65;color:var(--ink);margin:0 0 14px">Chiến dịch do Ban chỉ đạo phòng chống bạo lực mạng sinh viên TDMU khởi xướng nhằm nâng cao nhận thức, trang bị kỹ năng ứng xử văn minh và bảo vệ dữ liệu cá nhân cho toàn thể sinh viên các khoa.</p>
+      
+      <div class="rules-list">
+        <div class="rule-item">
+          <span class="rule-num">1</span>
+          <div>
+            <b>Tôn trọng sự khác biệt</b>
+            <p>Không phán xét, miệt thị ngoại hình, tôn giáo, giới tính hoặc xuất thân của bạn học trên các diễn đàn và mạng xã hội.</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">2</span>
+          <div>
+            <b>Bảo mật thông tin</b>
+            <p>Tuyệt đối không phát tán hình ảnh, tin nhắn riêng tư, số điện thoại cá nhân của người khác khi chưa có sự đồng ý.</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">3</span>
+          <div>
+            <b>Phát ngôn có trách nhiệm</b>
+            <p>Kiểm chứng nguồn tin trước khi chia sẻ; không hùa theo các phong trào công kích, bêu xấu tập thể hoặc cá nhân.</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">4</span>
+          <div>
+            <b>Dũng cảm lên tiếng</b>
+            <p>Không im lặng thờ ơ khi chứng kiến bạn bè bị bắt nạt qua mạng; chủ động đồng hành, lưu chứng cứ và trợ giúp nạn nhân.</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-num">5</span>
+          <div>
+            <b>Hợp tác & Kết nối</b>
+            <p>Chủ động thông báo cho Ban cán sự lớp hoặc Phòng CTSV khi phát hiện dấu hiệu bạo lực mạng nghiêm trọng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="campaign-pledge-box">
+      <b style="color:var(--ink);font-size:.95rem">Ký cam kết "Sinh viên TDMU văn minh số":</b>
+      <p style="margin:4px 0 10px;font-size:.82rem;color:var(--mu)">Ký cam kết trực tuyến để chung tay xây dựng môi trường học đường số tích cực và nhận mã xác nhận tham gia.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <input id="pledgeName" type="text" placeholder="Nhập họ và tên sinh viên..." style="flex:1;min-width:180px;padding:8px 12px;border:1px solid var(--ln);border-radius:10px;font-size:.88rem">
+        <input id="pledgeId" type="text" placeholder="MSSV (ví dụ: 22001234)..." style="width:140px;padding:8px 12px;border:1px solid var(--ln);border-radius:10px;font-size:.88rem">
+        <button id="pledgeBtn" class="btn" type="button" style="padding:8px 16px;font-size:.88rem">Ký cam kết</button>
+      </div>
+      <div id="pledgeResult" style="display:none;margin-top:10px;padding:10px 14px;background:#ECFDF5;border:1px solid #10B981;border-radius:10px;color:#065F46;font-size:.88rem"></div>
+    </div>
+
+    <div class="acts" style="margin-top:16px;justify-content:flex-end">
+      <button class="btn o close-campaign" type="button">Đóng lại</button>
+    </div>
+  </div>
+</div>
+
+<button class="top" id="topBtn" aria-label="Lên đầu trang" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+<script src="js/scanner.js"></script>
+<script src="js/interactive.js"></script>
+<script src="js/tools.js"></script>
+<script src="js/features.js"></script>
+</body>
+</html>
