@@ -187,6 +187,13 @@
       <div class="card" style="margin-top:40px">
         <h3 style="font-size:1.25rem">Mẫu lập Biên bản ghi nhận bằng chứng bạo lực mạng</h3>
         <p style="color:var(--mu);margin-bottom:20px">Điền thông tin vụ việc để hệ thống tự động xuất bản tóm tắt chuẩn mực, sẵn sàng gửi cho Cố vấn học tập, Phòng CTSV hoặc cơ quan chức năng.</p>
+        <div style="margin-bottom:14px;background:var(--so);border:1px solid var(--ln);border-radius:10px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+          <span style="font-size:.84rem;font-weight:600;color:var(--ink)">Mẫu dữ liệu thực tế (Bấm để nạp sẵn dữ liệu minh họa chân thực):</span>
+          <div style="display:flex;gap:6px">
+            <button class="btn o btn-sm" id="btnSampleCase" type="button" style="font-size:.78rem;padding:5px 12px;background:var(--sf)">📋 Nạp mẫu sự việc thực tế</button>
+            <button class="btn o btn-sm" id="btnClearCase" type="button" style="font-size:.78rem;padding:5px 12px;color:var(--mu)">✕ Xóa để tự điền</button>
+          </div>
+        </div>
         <div class="two" style="gap:20px">
           <div>
             <label for="f1">Nền tảng xảy ra</label>
@@ -213,12 +220,12 @@
           <button class="btn" id="mk" type="button">Tạo bản ghi nhận</button>
           <button class="btn o" id="cp" type="button">Sao chép văn bản</button>
           <button class="btn o" id="dlReport" type="button">Tải file văn bản (.txt)</button>
-          <button class="btn o" type="button" onclick="window.print()">
+          <button class="btn o" type="button" id="btnPrintPdf">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
             In / Xuất PDF
           </button>
         </div>
-        <textarea id="ev" readonly style="margin-top:16px;min-height:160px;font-family:monospace;font-size:.9rem" aria-label="Bản tóm tắt bằng chứng"></textarea>
+        <textarea id="ev" readonly style="margin-top:16px;min-height:160px;font-family:monospace;font-size:.9rem;line-height:1.55;background:var(--so);color:var(--ink);border:1.5px solid var(--ln);border-radius:10px;padding:12px 14px" aria-label="Bản tóm tắt bằng chứng"></textarea>
 
         <div style="margin-top:20px;padding:16px;background:var(--so);border-radius:12px;border:1px solid var(--ln)">
           <b style="display:block;font-size:.95rem;color:var(--ink);margin-bottom:8px">Checklist 5 Bằng chứng có giá trị pháp lý cao nhất cần chuẩn bị trước khi gửi đơn:</b>
@@ -289,6 +296,7 @@
         <span>GVHD: Võ Tấn Bản</span>
         <span>Số 06 Trần Văn Ơn, Phú Hòa, TP. Thủ Dầu Một</span>
         <a href="https://trello.com/b/yOmx5wkw" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;color:#93C5FD;margin-top:6px;font-size:.82rem;text-decoration:none">📋 Bảng tiến độ Trello Nhóm 17 ↗</a>
+        <a href="https://canva.link/nbr83w5sgsaciqh" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;color:#93C5FD;margin-top:4px;font-size:.82rem;text-decoration:none">🎨 Slide thuyết trình Canva Nhóm 17 ↗</a>
       </div>
     </div>
     <hr class="footer-divider">

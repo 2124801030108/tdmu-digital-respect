@@ -63,6 +63,167 @@
     };
   }
 
+  function buildEvidencePdfHtml(f1, f2, f3, f4, f5) {
+    const now = new Date();
+    const dateStr = 'Bình Dương, ngày ' + now.getDate() + ' tháng ' + (now.getMonth() + 1) + ' năm ' + now.getFullYear();
+    const timeStr = f2 || now.toLocaleString('vi-VN');
+    const platStr = f1 || 'Facebook';
+
+    const accStr = f3 || 'Tài khoản ẩn danh / Nặc danh (Đang đề nghị Nhà trường phối hợp cơ quan an ninh mạng xác minh IP)';
+    const descStr = f4 || 'Tài khoản đối tượng có hành vi dùng từ ngữ xúc phạm danh dự, công kích cá nhân và lan truyền thông tin sai lệch trong môi trường sinh viên; gây ảnh hưởng nghiêm trọng đến tâm lý và việc học tập của người phản ánh.';
+    const linkStr = f5 || 'Đã lưu trữ và đính kèm ảnh chụp màn hình chứng cứ số (kèm tệp hình ảnh/video khi nộp biên bản)';
+
+    return '<!DOCTYPE html>' +
+      '<html lang="vi">' +
+      '<head>' +
+      '<meta charset="utf-8">' +
+      '<title></title>' +
+      '<style>' +
+      '@page { size: A4 portrait; margin: 12mm 18mm 12mm 18mm; }' +
+      'body { font-family: "Times New Roman", Times, serif; font-size: 13pt; line-height: 1.45; color: #000; margin: 0; padding: 0; background: #fff; }' +
+      '.header-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }' +
+      '.header-table td { vertical-align: top; text-align: center; }' +
+      '.divider { width: 130px; height: 1.2px; background: #000; margin: 4px auto 0; }' +
+      '.main-title { text-align: center; font-size: 15pt; font-weight: bold; text-transform: uppercase; margin: 14px 0 4px; }' +
+      '.doc-sub { text-align: center; font-style: italic; font-size: 11pt; margin-bottom: 14px; color: #333; }' +
+      '.content-table { width: 100%; border-collapse: collapse; margin-top: 8px; margin-bottom: 12px; }' +
+      '.content-table td { padding: 7px 10px; vertical-align: top; border: 1px solid #333; font-size: 12pt; }' +
+      '.content-table td.lbl { width: 33%; font-weight: bold; background: #f8f9fa; }' +
+      '.signature-table { width: 100%; border-collapse: collapse; margin-top: 20px; page-break-inside: avoid; }' +
+      '.signature-table td { width: 50%; text-align: center; vertical-align: top; font-size: 12pt; }' +
+      '.signature-space { height: 75px; }' +
+      '.note-box { font-size: 10.5pt; font-style: italic; margin-top: 10px; border-top: 1px dashed #666; padding-top: 6px; color: #222; }' +
+      '</style>' +
+      '</head>' +
+      '<body>' +
+      '<table class="header-table">' +
+      '<tr>' +
+      '<td style="width:48%">' +
+      'TRƯỜNG ĐẠI HỌC THỦ DẦU MỘT<br>' +
+      '<b>DỰ ÁN TDMU DIGITAL RESPECT</b><br>' +
+      '<div class="divider"></div>' +
+      '<div style="font-size:10pt;margin-top:4px;font-style:italic">Số: ' + Math.floor(1000 + Math.random() * 9000) + '/BB-TDMUDR</div>' +
+      '</td>' +
+      '<td style="width:52%">' +
+      '<b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b><br>' +
+      '<b>Độc lập – Tự do – Hạnh phúc</b><br>' +
+      '<div class="divider"></div>' +
+      '<div style="font-size:10pt;margin-top:4px;font-style:italic">' + dateStr + '</div>' +
+      '</td>' +
+      '</tr>' +
+      '</table>' +
+      '<div class="main-title">BIÊN BẢN GHI NHẬN SỰ VIỆC VÀ BẰNG CHỨNG BẠO LỰC MẠNG</div>' +
+      '<div class="doc-sub">(Hồ sơ minh chứng gửi Cố vấn học tập & Phòng Công tác Sinh viên Đại học Thủ Dầu Một)</div>' +
+      '<table class="content-table">' +
+      '<tr><td class="lbl">1. Nền tảng xảy ra sự việc:</td><td><strong>' + esc(platStr) + '</strong></td></tr>' +
+      '<tr><td class="lbl">2. Thời điểm xảy ra / phát hiện:</td><td>' + esc(timeStr) + '</td></tr>' +
+      '<tr><td class="lbl">3. Tài khoản / Đối tượng gây hại:</td><td><strong>' + esc(accStr) + '</strong></td></tr>' +
+      '<tr><td class="lbl">4. Đường dẫn liên kết (Link bài viết / bình luận):</td><td style="word-break:break-all;color:#075A94">' + esc(linkStr) + '</td></tr>' +
+      '<tr><td class="lbl">5. Mô tả hành vi & mức độ ảnh hưởng:</td><td style="white-space:pre-wrap;line-height:1.5">' + esc(descStr) + '</td></tr>' +
+      '<tr><td class="lbl">6. Biện pháp kỹ thuật người lập đã làm:</td><td>' +
+      '- Đã chụp ảnh màn hình lưu giữ nguyên trạng ngày giờ hệ thống máy tính/điện thoại.<br>' +
+      '- Đã sao lưu đường dẫn liên kết URL cố định (permalink).<br>' +
+      '- Đã thực hiện Báo cáo vi phạm (Report) lên nền tảng mạng xã hội và tạm khóa tương tác chặn leo thang.' +
+      '</td></tr>' +
+      '<tr><td class="lbl">7. Đề nghị hỗ trợ / Ý kiến:</td><td>' +
+      'Kính nhờ Cố vấn học tập, Ban chủ nhiệm Khoa và Phòng Công tác Sinh viên (CTSV TDMU - Phòng B.102) tiếp nhận, bảo mật thông tin cá nhân và phối hợp can thiệp bảo vệ an toàn cho sinh viên theo đúng Quy chế ứng xử học đường.' +
+      '</td></tr>' +
+      '</table>' +
+      '<div class="note-box">* Biên bản này được tạo tự động từ Cổng hỗ trợ sinh viên TDMU Digital Respect, là tài liệu minh chứng cơ sở ban đầu để Nhà trường xác minh và hỗ trợ xử lý vi phạm.</div>' +
+      '<table class="signature-table">' +
+      '<tr>' +
+      '<td>' +
+      '<b>ĐẠI DIỆN TIẾP NHẬN</b><br>' +
+      '<i>(Phòng CTSV / Cố vấn học tập)</i><br>' +
+      '<div class="signature-space"></div>' +
+      '<i>(Ký và ghi rõ họ tên)</i>' +
+      '</td>' +
+      '<td>' +
+      '<b>NGƯỜI LẬP BIÊN BẢN</b><br>' +
+      '<i>(Ký xác nhận)</i><br>' +
+      '<div class="signature-space"></div>' +
+      '<i>(Ký và ghi rõ họ tên)</i>' +
+      '</td>' +
+      '</tr>' +
+      '</table>' +
+      '</body>' +
+      '</html>';
+  }
+
+  function handlePrintPdf() {
+    const v = id => ($(id) && $(id).value.trim()) || '';
+    const now = new Date();
+    const f2El = $('#f2');
+    const timeVal = (f2El && f2El.value.trim()) || now.toLocaleString('vi-VN');
+    if (f2El && !f2El.value.trim()) f2El.value = timeVal;
+
+    const f1Val = ($('#f1') && $('#f1').value) || 'Facebook';
+    const f3Val = v('#f3');
+    const f4Val = v('#f4');
+    const f5Val = v('#f5');
+
+    const mk = $('#mk');
+    if (mk) mk.click();
+
+    const docHtml = buildEvidencePdfHtml(f1Val, timeVal, f3Val, f4Val, f5Val);
+
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'fixed';
+    printFrame.style.right = '0';
+    printFrame.style.bottom = '0';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.border = '0';
+    document.body.appendChild(printFrame);
+
+    const frameDoc = printFrame.contentWindow.document;
+    frameDoc.open();
+    frameDoc.write(docHtml);
+    frameDoc.close();
+
+    setTimeout(() => {
+      printFrame.contentWindow.focus();
+      printFrame.contentWindow.print();
+      setTimeout(() => {
+        if (printFrame.parentNode) {
+          printFrame.parentNode.removeChild(printFrame);
+        }
+      }, 3000);
+    }, 400);
+  }
+
+  
+  const btnSample = $('#btnSampleCase');
+  const btnClear = $('#btnClearCase');
+
+  if (btnSample) {
+    btnSample.onclick = () => {
+      if ($('#f1')) $('#f1').value = 'Facebook (Trang cá nhân / Nhóm lớp / Diễn đàn Confession)';
+      const now = new Date();
+      if ($('#f2')) $('#f2').value = now.toLocaleString('vi-VN');
+      if ($('#f3')) $('#f3').value = 'Tài khoản ẩn danh "K.T.H" (Lớp D22CNTT01) & Nhóm chat sinh viên';
+      if ($('#f4')) $('#f4').value = 'Đối tượng liên tục đăng tải các bài viết cắt ghép hình ảnh cá nhân, kèm bình luận thô tục xúc phạm ngoại hình và đe dọa cô lập trong các buổi học nhóm học phần; gây áp lực tâm lý nặng nề và gián đoạn việc học tập trên lớp.';
+      if ($('#f5')) $('#f5').value = 'https://facebook.com/groups/tdmu.sinhvien.k22/posts/849201847192';
+      if (mkBtn) mkBtn.click();
+    };
+  }
+
+  if (btnClear) {
+    btnClear.onclick = () => {
+      if ($('#f2')) $('#f2').value = '';
+      if ($('#f3')) $('#f3').value = '';
+      if ($('#f4')) $('#f4').value = '';
+      if ($('#f5')) $('#f5').value = '';
+      const ev = $('#ev');
+      if (ev) ev.value = '';
+    };
+  }
+
+  const printPdfBtn = $('#btnPrintPdf');
+  if (printPdfBtn) {
+    printPdfBtn.onclick = handlePrintPdf;
+  }
+
   const TB = (id, data, fn) => {
     const bar = $('#' + id + 'b'), out = $('#' + id + 'o');
     if (!bar || !out) return;
@@ -377,4 +538,237 @@
       auditScoreBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   }
+
+
+  const passInput = document.getElementById('generatedPass');
+  const passGenBtn = document.getElementById('generatePassBtn');
+  const passCopyBtn = document.getElementById('copyPassBtn');
+  const passEyeBtn = document.getElementById('togglePassEye');
+  const passEyeIcon = document.getElementById('eyeIcon');
+  const passToast = document.getElementById('pwdCopyToast');
+  const passScoreBadge = document.getElementById('pwdStrScore');
+  const passScoreBar = document.getElementById('pwdStrBar');
+  const passScoreMsg = document.getElementById('pwdStrMsg');
+
+  const btnSampleWeak = document.getElementById('pwdSampleWeak');
+  const btnSampleMed = document.getElementById('pwdSampleMed');
+  const btnSampleStrong = document.getElementById('pwdSampleStrong');
+  const btnSampleClear = document.getElementById('pwdSampleClear');
+
+  const cLen = document.getElementById('critLen');
+  const cLenIcon = document.getElementById('critLenIcon');
+  const cCase = document.getElementById('critCase');
+  const cCaseIcon = document.getElementById('critCaseIcon');
+  const cNum = document.getElementById('critNum');
+  const cNumIcon = document.getElementById('critNumIcon');
+  const cSym = document.getElementById('critSym');
+  const cSymIcon = document.getElementById('critSymIcon');
+
+  function updateCriteria(elem, iconElem, passed) {
+    if (!elem || !iconElem) return;
+    if (passed) {
+      elem.style.color = '#059669';
+      iconElem.textContent = '✓';
+    } else {
+      elem.style.color = '#94A3B8';
+      iconElem.textContent = '✕';
+    }
+  }
+
+  function evaluatePasswordStr(val) {
+    if (!val || val.length === 0) {
+      if (passScoreBadge) {
+        passScoreBadge.textContent = 'CHƯA NHẬP (0%)';
+        passScoreBadge.style.color = '#64748B';
+        passScoreBadge.style.background = '#F1F5F9';
+      }
+      if (passScoreBar) {
+        passScoreBar.style.width = '0%';
+        passScoreBar.style.background = '#94A3B8';
+      }
+      if (passScoreMsg) {
+        passScoreMsg.textContent = 'Hãy nhập hoặc bấm Tạo mật khẩu mới để đo độ an toàn.';
+        passScoreMsg.style.color = 'var(--mu)';
+      }
+      updateCriteria(cLen, cLenIcon, false);
+      updateCriteria(cCase, cCaseIcon, false);
+      updateCriteria(cNum, cNumIcon, false);
+      updateCriteria(cSym, cSymIcon, false);
+      return;
+    }
+
+    const hasUpper = /[A-Z]/.test(val);
+    const hasLower = /[a-z]/.test(val);
+    const hasNum = /[0-9]/.test(val);
+    const hasSym = /[^A-Za-z0-9]/.test(val);
+    const len12 = val.length >= 12;
+    const caseMix = hasUpper && hasLower;
+
+    updateCriteria(cLen, cLenIcon, len12);
+    updateCriteria(cCase, cCaseIcon, caseMix);
+    updateCriteria(cNum, cNumIcon, hasNum);
+    updateCriteria(cSym, cSymIcon, hasSym);
+
+    const weakDict = ['123456', '12345678', 'password', 'qwerty', '111111', 'admin', 'tdmu', 'sinhvien', 'tdmu123', 'iloveyou'];
+    const isKnownWeak = weakDict.some(w => val.toLowerCase() === w || (val.toLowerCase().includes(w) && val.length < 9));
+
+    let score = 0;
+    if (val.length >= 6) score += 15;
+    if (val.length >= 8) score += 15;
+    if (val.length >= 12) score += 15;
+    if (val.length >= 14) score += 10;
+    if (caseMix) score += 20;
+    else if (hasUpper || hasLower) score += 10;
+    if (hasNum) score += 15;
+    if (hasSym) score += 15;
+
+    if (isKnownWeak) score = Math.min(score, 18);
+
+    score = Math.min(100, Math.max(10, score));
+
+    let label = 'RẤT YẾU';
+    let color = '#DC2626';
+    let bg = '#FEE2E2';
+    let barColor = '#EF4444';
+    let msg = 'Cảnh báo nguy hiểm! Mật khẩu quá ngắn hoặc nằm trong từ điển phổ biến. Tin tặc dùng phần mềm tự động có thể bẻ khóa trong vòng 0.01 giây!';
+
+    if (score >= 90) {
+      label = 'CỰC MẠNH (' + score + '%)';
+      color = '#059669';
+      bg = '#ECFDF5';
+      barColor = '#10B981';
+      msg = 'Mật khẩu đạt chuẩn an ninh mạng tối đa! Kháng tấn công dò quét brute-force, bảo vệ an toàn tuyệt đối cho Portal TDMU và Email sinh viên.';
+    } else if (score >= 70) {
+      label = 'MẠNH (' + score + '%)';
+      color = '#059669';
+      bg = '#ECFDF5';
+      barColor = '#10B981';
+      msg = 'Mật khẩu an toàn tốt, cấu trúc phức tạp đạt tiêu chuẩn bảo vệ tài khoản sinh viên.';
+    } else if (score >= 45) {
+      label = 'TRUNG BÌNH (' + score + '%)';
+      color = '#D97706';
+      bg = '#FEF3C7';
+      barColor = '#F59E0B';
+      msg = 'Độ bảo mật trung bình. Khuyến nghị tăng độ dài lên trên 12 ký tự và thêm ký tự đặc biệt (!@#$) để an toàn hơn.';
+    } else if (score >= 25) {
+      label = 'YẾU (' + score + '%)';
+      color = '#EA580C';
+      bg = '#FFEDD5';
+      barColor = '#F97316';
+      msg = 'Mật khẩu còn yếu, thiếu độ phức tạp. Các công cụ dò quét có thể tìm ra trong vòng vài phút!';
+    }
+
+    if (passScoreBadge) {
+      passScoreBadge.textContent = label;
+      passScoreBadge.style.color = color;
+      passScoreBadge.style.background = bg;
+    }
+    if (passScoreBar) {
+      passScoreBar.style.width = score + '%';
+      passScoreBar.style.background = barColor;
+    }
+    if (passScoreMsg) {
+      passScoreMsg.textContent = msg;
+      passScoreMsg.style.color = color;
+    }
+  }
+
+  function makeRandomPassword() {
+    const uppers = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+    const lowers = 'abcdefghijkmnpqrstuvwxyz';
+    const numbers = '23456789';
+    const symbols = '!@#$%^&*~';
+    const pool = uppers + lowers + numbers + symbols;
+
+    let res = 'TDMU@';
+    res += uppers.charAt(Math.floor(Math.random() * uppers.length));
+    res += lowers.charAt(Math.floor(Math.random() * lowers.length));
+    res += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    res += symbols.charAt(Math.floor(Math.random() * symbols.length));
+
+    for (let i = 0; i < 7; i++) {
+      res += pool.charAt(Math.floor(Math.random() * pool.length));
+    }
+    return res;
+  }
+
+  if (passInput) {
+    passInput.addEventListener('input', function() {
+      evaluatePasswordStr(passInput.value.trim());
+    });
+  }
+
+  if (passGenBtn) {
+    passGenBtn.addEventListener('click', function() {
+      const newPwd = makeRandomPassword();
+      passInput.value = newPwd;
+      passInput.type = 'text';
+      evaluatePasswordStr(newPwd);
+    });
+  }
+
+  if (passEyeBtn) {
+    passEyeBtn.addEventListener('click', function() {
+      if (passInput.type === 'password') {
+        passInput.type = 'text';
+        passEyeIcon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+      } else {
+        passInput.type = 'password';
+        passEyeIcon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+      }
+    });
+  }
+
+  if (passCopyBtn) {
+    passCopyBtn.addEventListener('click', function() {
+      const val = passInput.value.trim();
+      if (!val) return;
+      navigator.clipboard.writeText(val).then(function() {
+        if (passToast) {
+          passToast.style.display = 'block';
+          setTimeout(function() {
+            passToast.style.display = 'none';
+          }, 3000);
+        }
+      });
+    });
+  }
+
+  if (btnSampleWeak) {
+    btnSampleWeak.addEventListener('click', function() {
+      passInput.value = '123456';
+      passInput.type = 'text';
+      evaluatePasswordStr('123456');
+    });
+  }
+
+  if (btnSampleMed) {
+    btnSampleMed.addEventListener('click', function() {
+      passInput.value = 'Tdmu@2026';
+      passInput.type = 'text';
+      evaluatePasswordStr('Tdmu@2026');
+    });
+  }
+
+  if (btnSampleStrong) {
+    btnSampleStrong.addEventListener('click', function() {
+      const s = makeRandomPassword();
+      passInput.value = s;
+      passInput.type = 'text';
+      evaluatePasswordStr(s);
+    });
+  }
+
+  if (btnSampleClear) {
+    btnSampleClear.addEventListener('click', function() {
+      passInput.value = '';
+      passInput.focus();
+      evaluatePasswordStr('');
+    });
+  }
+
+  if (passInput && passInput.value) {
+    evaluatePasswordStr(passInput.value.trim());
+  }
+
 })();

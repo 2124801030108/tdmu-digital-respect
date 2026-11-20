@@ -1644,7 +1644,7 @@ footer a:hover { color: #fff; text-decoration: underline; }
   gap: 8px;
 }
 
-.team-trello-btn {
+  .team-trello-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1657,6 +1657,30 @@ footer a:hover { color: #fff; text-decoration: underline; }
   border: 1px solid rgba(0,82,204,.2);
   text-decoration: none;
   transition: all var(--transition);
+}
+
+
+.team-canva-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #EBF3FB;
+  color: #0052CC;
+  font-weight: 600;
+  font-size: .82rem;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,82,204,.2);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.team-canva-btn:hover {
+  background: #0052CC;
+  color: #fff;
+  border-color: #0052CC;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(0,82,204,.35);
 }
 
 .team-trello-btn:hover {
@@ -2118,7 +2142,8 @@ html, body {
     gap: 8px !important;
     width: 100% !important;
   }
-  .team-trello-btn {
+  .team-trello-btn,
+  .team-canva-btn {
     width: 100% !important;
     justify-content: center !important;
     text-align: center !important;
