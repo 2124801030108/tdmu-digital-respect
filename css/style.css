@@ -1627,6 +1627,41 @@ footer a:hover { color: #fff; text-decoration: underline; }
   color: var(--mu);
 }
 
+
+.team-trello-link {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--ln);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.team-trello-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #EBF3FB;
+  color: #0052CC;
+  font-weight: 600;
+  font-size: .82rem;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,82,204,.2);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.team-trello-btn:hover {
+  background: #0052CC;
+  color: #fff;
+  border-color: #0052CC;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(0,82,204,.35);
+}
+
 .team-members-hint {
   display: flex;
   align-items: center;
