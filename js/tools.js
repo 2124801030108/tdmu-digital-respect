@@ -5,6 +5,9 @@
   const mkBtn = $('#mk');
   if (mkBtn) {
     mkBtn.onclick = () => {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Công cụ Lập biên bản sự việc bạo lực mạng')) {
+        return;
+      }
       const v = id => ($(id) && $(id).value.trim()) || '(chưa điền)';
       const now = new Date();
       const f2El = $('#f2');
@@ -50,6 +53,9 @@
   const dlReportBtn = $('#dlReport');
   if (dlReportBtn) {
     dlReportBtn.onclick = () => {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Tải file Biên bản sự việc')) {
+        return;
+      }
       const ev = $('#ev');
       if (!ev || !ev.value.trim()) {
         if (mkBtn) mkBtn.click();
@@ -151,6 +157,9 @@
   }
 
   function handlePrintPdf() {
+    if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Xuất file PDF Biên bản sự việc')) {
+      return;
+    }
     const v = id => ($(id) && $(id).value.trim()) || '';
     const now = new Date();
     const f2El = $('#f2');
@@ -447,6 +456,9 @@
 
   if (runAuditBtn && auditScoreBox) {
     runAuditBtn.addEventListener('click', () => {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Công cụ Rà soát 4 lớp bảo vệ an toàn số')) {
+        return;
+      }
       let safeCount = 0;
       const advice = [];
 
@@ -674,6 +686,9 @@
 
   if (passGenBtn) {
     passGenBtn.addEventListener('click', function() {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Công cụ Tạo & Đánh giá mật khẩu an toàn')) {
+        return;
+      }
       const newPwd = makeRandomPassword();
       passInput.value = newPwd;
       passInput.type = 'text';
@@ -710,6 +725,9 @@
 
   if (btnSampleWeak) {
     btnSampleWeak.addEventListener('click', function() {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Công cụ Tạo & Đánh giá mật khẩu an toàn')) {
+        return;
+      }
       passInput.value = '123456';
       passInput.type = 'text';
       evaluatePasswordStr('123456');
@@ -718,6 +736,9 @@
 
   if (btnSampleMed) {
     btnSampleMed.addEventListener('click', function() {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Công cụ Tạo & Đánh giá mật khẩu an toàn')) {
+        return;
+      }
       passInput.value = 'Tdmu@2026';
       passInput.type = 'text';
       evaluatePasswordStr('Tdmu@2026');
@@ -726,6 +747,9 @@
 
   if (btnSampleStrong) {
     btnSampleStrong.addEventListener('click', function() {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Công cụ Tạo & Đánh giá mật khẩu an toàn')) {
+        return;
+      }
       const s = makeRandomPassword();
       passInput.value = s;
       passInput.type = 'text';

@@ -334,13 +334,21 @@
           if (user) {
             showAlert('Đăng nhập thành công! Chào mừng <b>' + user.name + '</b>. Đang chuyển hướng...', 'success');
             if (window.TDMU_AUTH) window.TDMU_AUTH.setCurrentUser(user);
+            const redirectTarget = params.get('redirect') ? decodeURIComponent(params.get('redirect')) : 'index.html';
             setTimeout(function() {
-              window.location.href = 'index.html';
+              window.location.href = redirectTarget;
             }, 800);
           } else {
             showAlert('Gmail hoặc mật khẩu chưa chính xác. Vui lòng kiểm tra lại!', 'error');
           }
         };
+      }
+
+      const regLinks = document.querySelectorAll('a[href="dang-ky.html"]');
+      if (params.get('redirect')) {
+        regLinks.forEach(function(l) {
+          l.href = 'dang-ky.html?redirect=' + encodeURIComponent(params.get('redirect'));
+        });
       }
     })();
   </script>

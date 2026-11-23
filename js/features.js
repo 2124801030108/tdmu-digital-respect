@@ -38,6 +38,12 @@
         if (posterDownloadBtn) {
           posterDownloadBtn.href = src;
           posterDownloadBtn.download = title.replace(/\s+/g, '-').toLowerCase() + '.svg';
+          posterDownloadBtn.onclick = (e) => {
+            if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Tải bộ Poster truyền thông số TDMU')) {
+              e.preventDefault();
+              return false;
+            }
+          };
         }
         posterModal.classList.add('active');
       }
@@ -354,6 +360,9 @@
   }
 
   function chooseSimOption(idx) {
+    if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Mô phỏng xử lý tình huống thực tế')) {
+      return;
+    }
     if (simTimer) {
       clearInterval(simTimer);
       simTimer = null;
@@ -793,6 +802,9 @@
 
   if (pledgeBtn && pledgeResult) {
     pledgeBtn.addEventListener('click', () => {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Ký cam kết Văn minh số TDMU')) {
+        return;
+      }
       const name = (pledgeName && pledgeName.value.trim()) || 'Sinh viên TDMU';
       const mssv = (pledgeId && pledgeId.value.trim()) || '2200' + Math.floor(1000 + Math.random() * 9000);
       const code = 'TDMU-VH2026-' + Math.floor(100000 + Math.random() * 900000);

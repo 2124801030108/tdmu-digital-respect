@@ -300,6 +300,24 @@
     if (rq) rq.style.display = 'inline-flex';
     box.innerHTML = '';
 
+    if (window.TDMU_AUTH && !window.TDMU_AUTH.getCurrentUser()) {
+      const authBanner = document.createElement('div');
+      authBanner.style.cssText = 'background:#FFFBEB;border:1.5px solid #F59E0B;border-radius:14px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px';
+      authBanner.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:1.4rem">🔒</span>
+          <div>
+            <strong style="color:#B45309;font-size:.92rem;display:block">Yêu cầu Đăng nhập để làm bài trắc nghiệm</strong>
+            <span style="font-size:.82rem;color:#92400E">Đăng nhập tài khoản sinh viên TDMU để mở khóa làm bài, tự động ghi nhận MSSV và nhận Giấy chứng nhận (+5 ĐRL).</span>
+          </div>
+        </div>
+        <a href="dang-nhap.html?redirect=nhan-dien.html" class="btn" style="background:#D97706;border-color:#D97706;color:#fff;font-size:.85rem;padding:7px 16px">
+          🔑 Đăng nhập ngay
+        </a>
+      `;
+      box.appendChild(authBanner);
+    }
+
     Q.forEach((x, qi) => {
       const d = document.createElement('div');
       d.className = 'q';
@@ -314,6 +332,9 @@
         b.className = 'op';
         b.textContent = t;
         b.onclick = () => {
+          if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Bài trắc nghiệm nhận diện & Cấp giấy chứng nhận (+5 ĐRL)')) {
+            return;
+          }
           d.querySelectorAll('.op').forEach((e, k) => {
             e.disabled = true;
             if (k === x.a) e.classList.add('ok');
@@ -371,7 +392,7 @@
                         <p style="margin:0 0 12px;font-size:.88rem;color:#047857">Bản điện tử chính thức kèm mã xác thực <b>#TDMU-DR26-${currentStudentId.slice(-4)}</b> đã được chuyển phát tức thì tới hộp thư: <b>${currentStudentEmail}</b></p>
                         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
                           <button type="button" class="btn o btn-sm" id="sendDirectGmailBtn" style="padding:7px 18px;font-size:.82rem">
-                            ✉️ Gửi lại thêm 1 bản nữa về Gmail
+                            ✉️ Gửi về Gmail
                           </button>
                         </div>
                         <div id="gmailDispatchNotice" style="display:none;margin-top:12px;padding:10px 14px;background:#ECFDF5;border:1px solid #10B981;border-radius:10px;font-size:.86rem;color:#065F46;font-weight:600"></div>
@@ -395,7 +416,7 @@
                         </div>
                         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
                           <button type="button" class="btn" id="updateAndSendGmailBtn" style="padding:9px 20px;font-size:.88rem">
-                            ✉️ Cập nhật & Gửi Giấy chứng nhận về Gmail
+                            ✉️ Gửi về Gmail
                           </button>
                           <a href="dang-nhap.html" class="btn o" style="padding:9px 16px;font-size:.88rem">
                             🔑 Đăng nhập để lưu hồ sơ
@@ -677,9 +698,9 @@
                 if (sendDirectBtn && dispatchNotice) {
                   sendDirectBtn.onclick = () => {
                     sendDirectBtn.disabled = true;
-                    sendDirectBtn.textContent = '✓ Đang chuyển phát thêm 1 bản...';
+                    sendDirectBtn.textContent = '⏳ Đang gửi về Gmail...';
                     sendCertViaEmailJS(currentStudentName, currentStudentId, currentStudentEmail, currentStudentDept, pts, cCanvas, function(certData) {
-                      sendDirectBtn.textContent = '✓ Đã chuyển phát thêm 1 bản thành công!';
+                      sendDirectBtn.textContent = '✓ Đã gửi về Gmail thành công!';
                     });
                   };
                 }
@@ -713,7 +734,7 @@
                     drawNhanDienCertificate(cCanvas, currentStudentName, currentStudentId, currentStudentDept);
 
                     updateAndSendBtn.disabled = true;
-                    updateAndSendBtn.textContent = '✓ Đang chuyển phát về Gmail...';
+                    updateAndSendBtn.textContent = '⏳ Đang gửi về Gmail...';
                     setTimeout(() => {
                       updateAndSendBtn.style.display = 'none';
                       dispatchNotice.style.display = 'block';

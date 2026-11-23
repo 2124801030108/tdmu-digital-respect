@@ -246,11 +246,74 @@
     }
   }
 
+  function requireLogin(featureName) {
+    const user = getCurrentUser();
+    if (user) return true;
+
+    let modal = document.getElementById('loginRequiredModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'loginRequiredModal';
+      modal.className = 'modal-overlay';
+      modal.style.cssText = 'position:fixed;inset:0;background:rgba(11,37,64,0.65);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:999999;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s ease;';
+      document.body.appendChild(modal);
+    }
+
+    const currentUrl = encodeURIComponent(window.location.pathname.split('/').pop() || 'index.html');
+    const fName = featureName || 'chức năng này';
+
+    modal.innerHTML = `
+      <div style="background:#ffffff;border-radius:20px;max-width:480px;width:100%;padding:28px 24px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);border:2px solid #0B7BC4;position:relative;animation:pop-msg .28s cubic-bezier(0.34, 1.56, 0.64, 1)">
+        <div style="width:60px;height:60px;border-radius:50%;background:#E1F0FB;color:#075A94;display:grid;place-items:center;margin:0 auto 16px;font-size:1.8rem;box-shadow:0 4px 14px rgba(11,123,196,0.18)">
+          🔒
+        </div>
+        <h3 style="margin:0 0 10px;font-size:1.25rem;color:#0B2540;font-family:'Be Vietnam Pro',sans-serif">
+          Yêu cầu Đăng nhập Tài khoản
+        </h3>
+        <p style="margin:0 0 20px;font-size:.92rem;color:#4A6580;line-height:1.6">
+          Bạn cần đăng nhập tài khoản Sinh viên TDMU để sử dụng <b>${fName}</b>, ghi nhận điểm rèn luyện (+5 ĐRL) và lưu trữ kết quả.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="dang-nhap.html?redirect=${currentUrl}" class="btn" style="background:#075A94;border-color:#075A94;color:#fff;padding:12px;font-size:.95rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px">
+            🔑 Đăng nhập ngay
+          </a>
+          <a href="dang-ky.html?redirect=${currentUrl}" class="btn o" style="padding:10px;font-size:.9rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px">
+            📝 Chưa có tài khoản? Đăng ký mới
+          </a>
+          <button type="button" id="closeLoginModalBtn" style="background:none;border:none;color:#94A3B8;font-size:.85rem;cursor:pointer;padding:6px;margin-top:4px">
+            Để sau (Đóng lại)
+          </button>
+        </div>
+      </div>
+    `;
+
+    modal.style.opacity = '1';
+    modal.style.pointerEvents = 'auto';
+
+    const closeBtn = document.getElementById('closeLoginModalBtn');
+    if (closeBtn) {
+      closeBtn.onclick = () => {
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+      };
+    }
+
+    modal.onclick = (e) => {
+      if (e.target === modal) {
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+      }
+    };
+
+    return false;
+  }
+
   window.TDMU_AUTH = {
     getStoredUsers,
     getCurrentUser,
     setCurrentUser,
-    renderAuthUI
+    renderAuthUI,
+    requireLogin
   };
 
   renderAuthUI();

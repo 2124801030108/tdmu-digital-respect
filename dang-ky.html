@@ -401,8 +401,10 @@
           } catch (err) {}
 
           showAlert('Đăng ký tài khoản thành công! Hệ thống đang chuyển bạn đến trang Đăng nhập...', 'success');
+          const params = new URLSearchParams(window.location.search);
+          const redir = params.get('redirect') ? '&redirect=' + encodeURIComponent(params.get('redirect')) : '';
           setTimeout(function() {
-            window.location.href = 'dang-nhap.html?registered=true&email=' + encodeURIComponent(email);
+            window.location.href = 'dang-nhap.html?registered=true&email=' + encodeURIComponent(email) + redir;
           }, 1000);
         };
       }

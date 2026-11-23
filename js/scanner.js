@@ -27,6 +27,9 @@
   ];
 
   function scan() {
+    if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Công cụ Quét ngôn từ độc hại AI')) {
+      return;
+    }
     const tx = document.getElementById('tx');
     const res = document.getElementById('res');
     const bar = document.getElementById('bar');
@@ -93,6 +96,9 @@
   const exBtn = document.getElementById('ex');
   if (exBtn) {
     exBtn.onclick = () => {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Công cụ Quét ngôn từ độc hại AI')) {
+        return;
+      }
       const tx = document.getElementById('tx');
       if (tx) {
         tx.value = 'Cái đồ vô dụng, làm slide thì xấu như ma mà còn cãi. Cút khỏi nhóm làm bài đi, tao sẽ bóc phốt mày lên confession trường cho mày biết tay!';
