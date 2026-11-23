@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Khôi Phục Mật Khẩu – TDMU Digital Respect</title>
+  <meta name="description" content="Khôi phục và đặt lại mật khẩu tài khoản sinh viên Trường Đại học Thủ Dầu Một qua Gmail xác thực.">
+  <meta name="theme-color" content="#0B7BC4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Lora:wght@600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="hd" id="top">
+    <div class="pg" id="pg"></div>
+    <div class="w">
+      <a class="lg" href="index.html">
+        <img class="tdmu-header-logo" src="assets/tdmu-logo.png" alt="Logo Trường Đại học Thủ Dầu Một" width="40" height="40">
+        <div class="lg-meta">
+          <span class="lg-name">TDMU Digital Respect</span>
+          <span class="lg-sub">Phòng chống bạo lực mạng</span>
+        </div>
+      </a>
+      <nav class="desktop-nav" aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="quet-tu.html">Quét từ</a>
+        <a href="tinh-huong.html">Tình huống</a>
+        <a href="nhan-dien.html">Nhận diện</a>
+        <a href="ung-pho.html">Ứng phó</a>
+        <a href="an-toan-so.html">An toàn số</a>
+        <a href="poster.html">Poster</a>
+        <a href="ho-tro.html">Hỗ trợ</a>
+        <a href="phap-luat.html">Pháp luật</a>
+      </nav>
+      <div class="hd-actions">
+        <button class="btn-sos open-sos" type="button" aria-label="Cứu trợ khẩn cấp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          <span class="sos-label">SOS Khẩn cấp</span>
+        </button>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" aria-label="Mở menu điều hướng" aria-expanded="false">
+          <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+    <div id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="Menu di động">
+      <div class="mobile-nav-header">
+        <div class="mobile-nav-brand">
+          <img class="tdmu-header-logo" src="assets/tdmu-logo.png" alt="Logo TDMU" width="34" height="34">
+          <div>
+            <b>TDMU Digital Respect</b>
+            <span>Phòng chống bạo lực mạng SV TDMU</span>
+          </div>
+        </div>
+        <button id="closeMobileNavBtn" class="close-mobile-nav" type="button" aria-label="Đóng menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-nav-list">
+        <a class="mobile-nav-link" href="index.html">
+          <span class="mn-icon">🏛️</span>
+          <div class="mn-content">
+            <b>Trang chủ & Tổng quan</b>
+            <span>Đề tài Báo cáo Nhóm 17 – TDMU</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="quet-tu.html">
+          <span class="mn-icon">🔍</span>
+          <div class="mn-content">
+            <b>Quét từ ngữ độc hại</b>
+            <span>Phát hiện công kích & xúc phạm</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="tinh-huong.html">
+          <span class="mn-icon">💬</span>
+          <div class="mn-content">
+            <b>10 Tình huống mô phỏng</b>
+            <span>Thực hành xử lý chat thực tế</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="nhan-dien.html">
+          <span class="mn-icon">📝</span>
+          <div class="mn-content">
+            <b>Nhận diện & Trắc nghiệm</b>
+            <span>10 câu hỏi kiểm tra kiến thức</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="ung-pho.html">
+          <span class="mn-icon">🛡️</span>
+          <div class="mn-content">
+            <b>Ứng phó & Lập chứng cứ</b>
+            <span>Mẫu biên bản gửi Nhà trường</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="an-toan-so.html">
+          <span class="mn-icon">🔒</span>
+          <div class="mn-content">
+            <b>Rà soát An toàn số</b>
+            <span>4 lớp bảo vệ tài khoản SV</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="poster.html">
+          <span class="mn-icon">🎨</span>
+          <div class="mn-content">
+            <b>Thư viện Poster số</b>
+            <span>Ấn phẩm tuyên truyền học đường</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="ho-tro.html">
+          <span class="mn-icon">📞</span>
+          <div class="mn-content">
+            <b>Hỗ trợ & Đường dây nóng</b>
+            <span>Phòng CTSV, Cố vấn học tập</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="phap-luat.html">
+          <span class="mn-icon">⚖️</span>
+          <div class="mn-content">
+            <b>Cơ sở pháp lý & Nội quy</b>
+            <span>Văn hóa ứng xử số sinh viên</span>
+          </div>
+        </a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a class="btn-sos-call" href="tel:02743822518">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Gọi ngay SOS Cứu trợ: 0274.3822.518
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <div class="auth-header">
+          <img src="assets/tdmu-logo.png" alt="Logo Trường Đại học Thủ Dầu Một" class="auth-logo" width="60" height="60">
+          <h1 class="auth-title">Khôi Phục Mật Khẩu</h1>
+          <p class="auth-subtitle">Nhập địa chỉ Gmail sinh viên để nhận mã xác thực OTP đặt lại mật khẩu mới</p>
+        </div>
+
+        <div id="authAlert" style="display:none"></div>
+
+        <form class="auth-form" id="forgotForm">
+          <div class="auth-field">
+            <label class="auth-label" for="resetEmail">
+              <span>Gmail sinh viên cần khôi phục</span>
+              <span style="font-weight:400;font-size:.74rem;color:var(--tl)">@gmail.com</span>
+            </label>
+            <div style="display:flex;gap:8px">
+              <input type="email" id="resetEmail" class="auth-input" placeholder="Ví dụ: an.nv@gmail.com" required autocomplete="email" style="flex:1">
+              <button type="button" class="btn" id="sendOtpBtn" style="white-space:nowrap;padding:8px 12px;font-size:.82rem">
+                Gửi mã OTP
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-field" id="otpSection" style="display:none">
+            <label class="auth-label" for="resetOtp">
+              <span>Mã xác thực OTP (6 số)</span>
+              <span style="font-weight:400;font-size:.74rem;color:#059669">Đã gửi về hộp thư Gmail</span>
+            </label>
+            <input type="text" id="resetOtp" class="auth-input" placeholder="Nhập 6 số OTP (Ví dụ: 862419)" maxlength="6" autocomplete="off">
+          </div>
+
+          <div class="auth-field" id="newPassSection" style="display:none">
+            <label class="auth-label" for="newPass">
+              <span>Mật khẩu mới</span>
+            </label>
+            <input type="password" id="newPass" class="auth-input" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password">
+
+            <label class="auth-label" for="newPassConfirm" style="margin-top:8px">
+              <span>Xác nhận mật khẩu mới</span>
+            </label>
+            <input type="password" id="newPassConfirm" class="auth-input" placeholder="Nhập lại mật khẩu mới" autocomplete="new-password">
+          </div>
+
+          <button type="submit" class="auth-btn-submit" id="submitResetBtn" style="display:none">
+            Cập Nhật Mật Khẩu Mới
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <span>Nhớ lại mật khẩu?</span>
+          <a href="dang-nhap.html">Quay về Đăng nhập</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="w">
+      <div class="fg">
+        <div>
+          <div class="footer-logo">
+            <img class="tdmu-header-logo" src="assets/tdmu-logo.png" alt="Logo Trường Đại học Thủ Dầu Một" width="44" height="44">
+            <div style="margin-left:6px">
+              <b style="display:block;font-size:1.05rem;color:#fff">TDMU Digital Respect</b>
+              <span style="font-size:.78rem;opacity:.8;display:block">Trường Đại học Thủ Dầu Một</span>
+            </div>
+          </div>
+          <p>Bộ công cụ trực quan hỗ trợ sinh viên Đại học Thủ Dầu Một nhận diện, phòng ngừa và ứng phó hiệu quả với bạo lực mạng.</p>
+        </div>
+        <div>
+          <b>Chuyên mục trọng tâm</b>
+          <a href="index.html">Trang chủ</a>
+          <a href="quet-tu.html">Quét ngôn từ độc hại</a>
+          <a href="tinh-huong.html">10 Tình huống mô phỏng</a>
+          <a href="nhan-dien.html">Nhận diện & Trắc nghiệm</a>
+          <a href="ung-pho.html">Ứng phó & Bằng chứng</a>
+          <a href="an-toan-so.html">Rà soát An toàn số</a>
+          <a href="poster.html">Poster truyền thông số</a>
+          <a href="ho-tro.html">Hỗ trợ khẩn cấp</a>
+          <a href="phap-luat.html">Cơ sở pháp lý</a>
+        </div>
+        <div>
+          <b>Đề tài Báo cáo</b>
+          <span>Đề tài: Phòng chống bạo lực mạng SV TDMU</span>
+          <span>Nhóm thực hiện: Nhóm 17 (3 thành viên)</span>
+          <span>GVHD: Võ Tấn Bản</span>
+          <span>Số 06 Trần Văn Ơn, Phú Hòa, TP. Thủ Dầu Một</span>
+          <a href="https://trello.com/b/yOmx5wkw" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;color:#93C5FD;margin-top:6px;font-size:.82rem;text-decoration:none">📋 Bảng tiến độ Trello Nhóm 17 ↗</a>
+          <a href="https://canva.link/nbr83w5sgsaciqh" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;color:#93C5FD;margin-top:4px;font-size:.82rem;text-decoration:none">🎨 Slide thuyết trình Canva Nhóm 17 ↗</a>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <p style="margin:0;color:#A0C4E2;font-size:.86rem;text-align:center">© 2026 TDMU Digital Respect – Dự án vì giảng đường văn minh và không gian mạng an toàn sinh viên Đại học Thủ Dầu Một.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/scanner.js"></script>
+  <script src="js/interactive.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/features.js"></script>
+  <script>
+    (function() {
+      const alertBox = document.getElementById('authAlert');
+      const resetEmail = document.getElementById('resetEmail');
+      const sendOtpBtn = document.getElementById('sendOtpBtn');
+      const otpSection = document.getElementById('otpSection');
+      const newPassSection = document.getElementById('newPassSection');
+      const submitResetBtn = document.getElementById('submitResetBtn');
+      const resetOtp = document.getElementById('resetOtp');
+      const newPass = document.getElementById('newPass');
+      const newPassConfirm = document.getElementById('newPassConfirm');
+
+      let currentGeneratedOtp = '';
+
+      function showAlert(msg, type) {
+        if (!alertBox) return;
+        alertBox.className = 'auth-alert auth-alert-' + type;
+        alertBox.style.display = 'flex';
+        alertBox.innerHTML = '<span>' + (type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ') + '</span><div>' + msg + '</div>';
+      }
+
+      if (sendOtpBtn && resetEmail) {
+        sendOtpBtn.onclick = function() {
+          const email = resetEmail.value.trim().toLowerCase();
+          if (!email) {
+            showAlert('Vui lòng nhập địa chỉ Gmail tài khoản của bạn để khôi phục mật khẩu!', 'error');
+            return;
+          }
+          if (!email.includes('@gmail.com') && !email.includes('@student.tdmu.edu.vn')) {
+            showAlert('Vui lòng nhập đúng định dạng Gmail (@gmail.com hoặc @student.tdmu.edu.vn)!', 'error');
+            return;
+          }
+
+          const users = window.TDMU_AUTH ? window.TDMU_AUTH.getStoredUsers() : [];
+          const user = users.find(u => u.email.toLowerCase() === email);
+
+          if (!user) {
+            showAlert('Địa chỉ Gmail này chưa được đăng ký trong hệ thống! Vui lòng kiểm tra lại Gmail bạn đã tạo hoặc nhấn "Đăng ký tài khoản mới".', 'error');
+            return;
+          }
+
+          currentGeneratedOtp = String(Math.floor(100000 + Math.random() * 900000));
+          otpSection.style.display = 'flex';
+          newPassSection.style.display = 'flex';
+          submitResetBtn.style.display = 'block';
+          resetEmail.readOnly = true;
+          sendOtpBtn.disabled = true;
+          sendOtpBtn.textContent = 'Đã gửi OTP';
+
+          showAlert('Hệ thống đã gửi mã xác thực OTP 6 chữ số tới hộp thư Gmail: <b>' + email + '</b>. Mã xác thực của bạn: <b style="color:#075A94;font-size:1.05rem">' + currentGeneratedOtp + '</b> (hiệu lực trong 05 phút). Vui lòng nhập mã và đặt mật khẩu mới bên dưới.', 'success');
+          if (resetOtp) resetOtp.value = currentGeneratedOtp;
+        };
+      }
+
+      const forgotForm = document.getElementById('forgotForm');
+      if (forgotForm) {
+        forgotForm.onsubmit = function(e) {
+          e.preventDefault();
+          const email = resetEmail.value.trim().toLowerCase();
+          const otp = resetOtp ? resetOtp.value.trim() : '';
+          const pass = newPass ? newPass.value : '';
+          const passConfirm = newPassConfirm ? newPassConfirm.value : '';
+
+          if (otp !== currentGeneratedOtp) {
+            showAlert('Mã OTP xác thực không đúng! Vui lòng kiểm tra lại.', 'error');
+            return;
+          }
+
+          if (pass.length < 6) {
+            showAlert('Mật khẩu mới phải có ít nhất 6 ký tự để đảm bảo an toàn số!', 'error');
+            return;
+          }
+
+          if (pass !== passConfirm) {
+            showAlert('Mật khẩu xác nhận không khớp! Vui lòng nhập lại chính xác.', 'error');
+            return;
+          }
+
+          const users = window.TDMU_AUTH ? window.TDMU_AUTH.getStoredUsers() : [];
+          const user = users.find(u => u.email.toLowerCase() === email);
+
+          if (user) {
+            user.pass = pass;
+            try {
+              localStorage.setItem('tdmu_users', JSON.stringify(users));
+            } catch (err) {}
+
+            showAlert('Đặt lại mật khẩu mới cho tài khoản Gmail: <b>' + email + '</b> thành công! Đang chuyển hướng về trang Đăng nhập...', 'success');
+            setTimeout(function() {
+              window.location.href = 'dang-nhap.html?reset=true&email=' + encodeURIComponent(email);
+            }, 1000);
+          } else {
+            showAlert('Không tìm thấy tài khoản tương ứng với Gmail này!', 'error');
+          }
+        };
+      }
+    })();
+  </script>
+</body>
+</html>

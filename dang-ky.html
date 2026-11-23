@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng Ký Tài Khoản Sinh Viên – TDMU Digital Respect</title>
+  <meta name="description" content="Đăng ký tài khoản sinh viên Trường Đại học Thủ Dầu Một để tham gia rèn luyện văn hóa mạng và cấp chứng nhận.">
+  <meta name="theme-color" content="#0B7BC4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Lora:wght@600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="hd" id="top">
+    <div class="pg" id="pg"></div>
+    <div class="w">
+      <a class="lg" href="index.html">
+        <img class="tdmu-header-logo" src="assets/tdmu-logo.png" alt="Logo Trường Đại học Thủ Dầu Một" width="40" height="40">
+        <div class="lg-meta">
+          <span class="lg-name">TDMU Digital Respect</span>
+          <span class="lg-sub">Phòng chống bạo lực mạng</span>
+        </div>
+      </a>
+      <nav class="desktop-nav" aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="quet-tu.html">Quét từ</a>
+        <a href="tinh-huong.html">Tình huống</a>
+        <a href="nhan-dien.html">Nhận diện</a>
+        <a href="ung-pho.html">Ứng phó</a>
+        <a href="an-toan-so.html">An toàn số</a>
+        <a href="poster.html">Poster</a>
+        <a href="ho-tro.html">Hỗ trợ</a>
+        <a href="phap-luat.html">Pháp luật</a>
+      </nav>
+      <div class="hd-actions">
+        <button class="btn-sos open-sos" type="button" aria-label="Cứu trợ khẩn cấp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          <span class="sos-label">SOS Khẩn cấp</span>
+        </button>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" aria-label="Mở menu điều hướng" aria-expanded="false">
+          <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+    <div id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="Menu di động">
+      <div class="mobile-nav-header">
+        <div class="mobile-nav-brand">
+          <img class="tdmu-header-logo" src="assets/tdmu-logo.png" alt="Logo TDMU" width="34" height="34">
+          <div>
+            <b>TDMU Digital Respect</b>
+            <span>Phòng chống bạo lực mạng SV TDMU</span>
+          </div>
+        </div>
+        <button id="closeMobileNavBtn" class="close-mobile-nav" type="button" aria-label="Đóng menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-nav-list">
+        <a class="mobile-nav-link" href="index.html">
+          <span class="mn-icon">🏛️</span>
+          <div class="mn-content">
+            <b>Trang chủ & Tổng quan</b>
+            <span>Đề tài Báo cáo Nhóm 17 – TDMU</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="quet-tu.html">
+          <span class="mn-icon">🔍</span>
+          <div class="mn-content">
+            <b>Quét từ ngữ độc hại</b>
+            <span>Phát hiện công kích & xúc phạm</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="tinh-huong.html">
+          <span class="mn-icon">💬</span>
+          <div class="mn-content">
+            <b>10 Tình huống mô phỏng</b>
+            <span>Thực hành xử lý chat thực tế</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="nhan-dien.html">
+          <span class="mn-icon">📝</span>
+          <div class="mn-content">
+            <b>Nhận diện & Trắc nghiệm</b>
+            <span>10 câu hỏi kiểm tra kiến thức</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="ung-pho.html">
+          <span class="mn-icon">🛡️</span>
+          <div class="mn-content">
+            <b>Ứng phó & Lập chứng cứ</b>
+            <span>Mẫu biên bản gửi Nhà trường</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="an-toan-so.html">
+          <span class="mn-icon">🔒</span>
+          <div class="mn-content">
+            <b>Rà soát An toàn số</b>
+            <span>4 lớp bảo vệ tài khoản SV</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="poster.html">
+          <span class="mn-icon">🎨</span>
+          <div class="mn-content">
+            <b>Thư viện Poster số</b>
+            <span>Ấn phẩm tuyên truyền học đường</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="ho-tro.html">
+          <span class="mn-icon">📞</span>
+          <div class="mn-content">
+            <b>Hỗ trợ & Đường dây nóng</b>
+            <span>Phòng CTSV, Cố vấn học tập</span>
+          </div>
+        </a>
+        <a class="mobile-nav-link" href="phap-luat.html">
+          <span class="mn-icon">⚖️</span>
+          <div class="mn-content">
+            <b>Cơ sở pháp lý & Nội quy</b>
+            <span>Văn hóa ứng xử số sinh viên</span>
+          </div>
+        </a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a class="btn-sos-call" href="tel:02743822518">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Gọi ngay SOS Cứu trợ: 0274.3822.518
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <div class="auth-header">
+          <img src="assets/tdmu-logo.png" alt="Logo Trường Đại học Thủ Dầu Một" class="auth-logo" width="60" height="60">
+          <h1 class="auth-title">Đăng Ký Tài Khoản Sinh Viên</h1>
+          <p class="auth-subtitle">Tạo hồ sơ rèn luyện văn hóa số và nhận giấy chứng nhận tích lũy điểm rèn luyện</p>
+        </div>
+
+        <div id="authAlert" style="display:none"></div>
+
+        <form class="auth-form" id="registerForm">
+          <div class="auth-field">
+            <label class="auth-label" for="regName">
+              <span>Họ và tên sinh viên</span>
+              <span style="font-weight:400;font-size:.74rem;color:var(--mu)">Bắt buộc</span>
+            </label>
+            <input type="text" id="regName" class="auth-input" placeholder="Ví dụ: Lê Thị Thanh Thảo" required autocomplete="name">
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="auth-field">
+              <label class="auth-label" for="regId">
+                <span>Mã số SV (MSSV)</span>
+              </label>
+              <input type="text" id="regId" class="auth-input" placeholder="Ví dụ: 2328501010045" required autocomplete="off">
+            </div>
+
+            <div class="auth-field">
+              <label class="auth-label" for="regDept">
+                <span>Khoa / Viện</span>
+              </label>
+              <select id="regDept" class="auth-input" style="cursor:pointer">
+                <option value="Viện Kỹ thuật - Công nghệ">Viện KT - Công nghệ</option>
+                <option value="Khoa Kinh tế & Quản trị">Khoa Kinh tế</option>
+                <option value="Khoa Ngoại ngữ">Khoa Ngoại ngữ</option>
+                <option value="Khoa Khoa học Xã hội & NV">Khoa KHXH&NV</option>
+                <option value="Khoa Sư phạm">Khoa Sư phạm</option>
+                <option value="Khoa Công nghệ Sinh học">Khoa CNSH</option>
+                <option value="Khoa Luật">Khoa Luật</option>
+                <option value="Khoa Kiến trúc">Khoa Kiến trúc</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="auth-field">
+            <label class="auth-label" for="regEmail">
+              <span>Gmail sinh viên</span>
+              <span style="font-weight:400;font-size:.74rem;color:var(--tl)">Yêu cầu định dạng Gmail</span>
+            </label>
+            <input type="email" id="regEmail" class="auth-input" placeholder="Ví dụ: thanhthao.tdmu@gmail.com" required autocomplete="email">
+          </div>
+
+          <div class="auth-field">
+            <label class="auth-label" for="regPass">
+              <span>Mật khẩu bảo mật</span>
+            </label>
+            <div class="auth-input-group">
+              <input type="password" id="regPass" class="auth-input" placeholder="Tối thiểu 6 ký tự" required autocomplete="new-password">
+              <span class="auth-input-icon" id="toggleRegPassBtn" title="Hiện/ẩn mật khẩu">👁️</span>
+            </div>
+            <div class="auth-strength-meter">
+              <div class="auth-strength-bar" id="bar1"></div>
+              <div class="auth-strength-bar" id="bar2"></div>
+              <div class="auth-strength-bar" id="bar3"></div>
+            </div>
+            <span class="auth-strength-text" id="strengthText" style="color:var(--mu)">Độ mạnh mật khẩu: Chưa nhập</span>
+          </div>
+
+          <div class="auth-field">
+            <label class="auth-label" for="regPassConfirm">
+              <span>Xác nhận mật khẩu</span>
+            </label>
+            <input type="password" id="regPassConfirm" class="auth-input" placeholder="Nhập lại mật khẩu ở trên" required autocomplete="new-password">
+          </div>
+
+          <div style="font-size:.8rem;color:var(--mu);line-height:1.5">
+            Bằng cách đăng ký, bạn cam kết thực hiện đúng chuẩn mực văn hóa ứng xử số và không tham gia, tiếp tay cho bạo lực mạng theo Quy chế Đại học Thủ Dầu Một.
+          </div>
+
+          <button type="submit" class="auth-btn-submit" id="submitRegBtn">
+            Đăng Ký Tài Khoản
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <span>Đã có tài khoản sinh viên?</span>
+          <a href="dang-nhap.html">Đăng nhập ngay</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="w">
+      <div class="fg">
+        <div>
+          <div class="footer-logo">
+            <img class="tdmu-header-logo" src="assets/tdmu-logo.png" alt="Logo Trường Đại học Thủ Dầu Một" width="44" height="44">
+            <div style="margin-left:6px">
+              <b style="display:block;font-size:1.05rem;color:#fff">TDMU Digital Respect</b>
+              <span style="font-size:.78rem;opacity:.8;display:block">Trường Đại học Thủ Dầu Một</span>
+            </div>
+          </div>
+          <p>Bộ công cụ trực quan hỗ trợ sinh viên Đại học Thủ Dầu Một nhận diện, phòng ngừa và ứng phó hiệu quả với bạo lực mạng.</p>
+        </div>
+        <div>
+          <b>Chuyên mục trọng tâm</b>
+          <a href="index.html">Trang chủ</a>
+          <a href="quet-tu.html">Quét ngôn từ độc hại</a>
+          <a href="tinh-huong.html">10 Tình huống mô phỏng</a>
+          <a href="nhan-dien.html">Nhận diện & Trắc nghiệm</a>
+          <a href="ung-pho.html">Ứng phó & Bằng chứng</a>
+          <a href="an-toan-so.html">Rà soát An toàn số</a>
+          <a href="poster.html">Poster truyền thông số</a>
+          <a href="ho-tro.html">Hỗ trợ khẩn cấp</a>
+          <a href="phap-luat.html">Cơ sở pháp lý</a>
+        </div>
+        <div>
+          <b>Đề tài Báo cáo</b>
+          <span>Đề tài: Phòng chống bạo lực mạng SV TDMU</span>
+          <span>Nhóm thực hiện: Nhóm 17 (3 thành viên)</span>
+          <span>GVHD: Võ Tấn Bản</span>
+          <span>Số 06 Trần Văn Ơn, Phú Hòa, TP. Thủ Dầu Một</span>
+          <a href="https://trello.com/b/yOmx5wkw" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;color:#93C5FD;margin-top:6px;font-size:.82rem;text-decoration:none">📋 Bảng tiến độ Trello Nhóm 17 ↗</a>
+          <a href="https://canva.link/nbr83w5sgsaciqh" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;color:#93C5FD;margin-top:4px;font-size:.82rem;text-decoration:none">🎨 Slide thuyết trình Canva Nhóm 17 ↗</a>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <p style="margin:0;color:#A0C4E2;font-size:.86rem;text-align:center">© 2026 TDMU Digital Respect – Dự án vì giảng đường văn minh và không gian mạng an toàn sinh viên Đại học Thủ Dầu Một.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/scanner.js"></script>
+  <script src="js/interactive.js"></script>
+  <script src="js/tools.js"></script>
+  <script src="js/features.js"></script>
+  <script>
+    (function() {
+      const alertBox = document.getElementById('authAlert');
+      const regForm = document.getElementById('registerForm');
+      const passInput = document.getElementById('regPass');
+      const passConfirmInput = document.getElementById('regPassConfirm');
+      const toggleRegPassBtn = document.getElementById('toggleRegPassBtn');
+      const bar1 = document.getElementById('bar1');
+      const bar2 = document.getElementById('bar2');
+      const bar3 = document.getElementById('bar3');
+      const strengthText = document.getElementById('strengthText');
+
+      function showAlert(msg, type) {
+        if (!alertBox) return;
+        alertBox.className = 'auth-alert auth-alert-' + type;
+        alertBox.style.display = 'flex';
+        alertBox.innerHTML = '<span>' + (type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ') + '</span><div>' + msg + '</div>';
+      }
+
+      if (toggleRegPassBtn && passInput) {
+        toggleRegPassBtn.onclick = function() {
+          if (passInput.type === 'password') {
+            passInput.type = 'text';
+            toggleRegPassBtn.textContent = '🔒';
+          } else {
+            passInput.type = 'password';
+            toggleRegPassBtn.textContent = '👁️';
+          }
+        };
+      }
+
+      if (passInput) {
+        passInput.oninput = function() {
+          const val = passInput.value;
+          let score = 0;
+          if (val.length >= 6) score++;
+          if (val.length >= 8 && /[A-Z]/.test(val) && /[0-9]/.test(val)) score++;
+          if (val.length >= 10 && /[^A-Za-z0-9]/.test(val)) score++;
+
+          if (val.length === 0) {
+            bar1.style.background = '#E2E8F0';
+            bar2.style.background = '#E2E8F0';
+            bar3.style.background = '#E2E8F0';
+            strengthText.textContent = 'Độ mạnh mật khẩu: Chưa nhập';
+            strengthText.style.color = 'var(--mu)';
+          } else if (score <= 1) {
+            bar1.style.background = '#EF4444';
+            bar2.style.background = '#E2E8F0';
+            bar3.style.background = '#E2E8F0';
+            strengthText.textContent = 'Độ mạnh mật khẩu: Yếu (Nên thêm chữ hoa, số và ký tự đặc biệt)';
+            strengthText.style.color = '#DC2626';
+          } else if (score === 2) {
+            bar1.style.background = '#F59E0B';
+            bar2.style.background = '#F59E0B';
+            bar3.style.background = '#E2E8F0';
+            strengthText.textContent = 'Độ mạnh mật khẩu: Trung bình (Khá an toàn)';
+            strengthText.style.color = '#B45309';
+          } else {
+            bar1.style.background = '#10B981';
+            bar2.style.background = '#10B981';
+            bar3.style.background = '#10B981';
+            strengthText.textContent = 'Độ mạnh mật khẩu: Rất mạnh (Đạt chuẩn an ninh mạng TDMU)';
+            strengthText.style.color = '#059669';
+          }
+        };
+      }
+
+      if (regForm) {
+        regForm.onsubmit = function(e) {
+          e.preventDefault();
+          const name = document.getElementById('regName').value.trim();
+          const id = document.getElementById('regId').value.trim();
+          const dept = document.getElementById('regDept').value;
+          const email = document.getElementById('regEmail').value.trim().toLowerCase();
+          const pass = passInput.value;
+          const passConfirm = passConfirmInput.value;
+
+          if (!name || !id || !email || !pass) {
+            showAlert('Vui lòng điền đầy đủ tất cả các trường thông tin!', 'error');
+            return;
+          }
+
+          if (!email.includes('@gmail.com') && !email.includes('@student.tdmu.edu.vn')) {
+            showAlert('Tất cả tài khoản phải sử dụng định dạng Gmail (@gmail.com hoặc @student.tdmu.edu.vn)!', 'error');
+            return;
+          }
+
+          if (pass.length < 6) {
+            showAlert('Mật khẩu phải có tối thiểu 6 ký tự để đảm bảo an toàn số!', 'error');
+            return;
+          }
+
+          if (pass !== passConfirm) {
+            showAlert('Mật khẩu xác nhận không khớp! Vui lòng kiểm tra lại.', 'error');
+            return;
+          }
+
+          const users = window.TDMU_AUTH ? window.TDMU_AUTH.getStoredUsers() : [];
+          if (users.some(u => u.email.toLowerCase() === email)) {
+            showAlert('Địa chỉ Gmail này đã được đăng ký trên hệ thống. Vui lòng đăng nhập hoặc dùng Gmail khác!', 'error');
+            return;
+          }
+
+          const newUser = {
+            name: name,
+            id: id,
+            email: email,
+            pass: pass,
+            dept: dept
+          };
+
+          users.push(newUser);
+          try {
+            localStorage.setItem('tdmu_users', JSON.stringify(users));
+          } catch (err) {}
+
+          showAlert('Đăng ký tài khoản thành công! Hệ thống đang chuyển bạn đến trang Đăng nhập...', 'success');
+          setTimeout(function() {
+            window.location.href = 'dang-nhap.html?registered=true&email=' + encodeURIComponent(email);
+          }, 1000);
+        };
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -69,15 +69,15 @@
     const timeStr = f2 || now.toLocaleString('vi-VN');
     const platStr = f1 || 'Facebook';
 
-    const accStr = f3 || 'Tài khoản ẩn danh / Nặc danh (Đang đề nghị Nhà trường phối hợp cơ quan an ninh mạng xác minh IP)';
-    const descStr = f4 || 'Tài khoản đối tượng có hành vi dùng từ ngữ xúc phạm danh dự, công kích cá nhân và lan truyền thông tin sai lệch trong môi trường sinh viên; gây ảnh hưởng nghiêm trọng đến tâm lý và việc học tập của người phản ánh.';
-    const linkStr = f5 || 'Đã lưu trữ và đính kèm ảnh chụp màn hình chứng cứ số (kèm tệp hình ảnh/video khi nộp biên bản)';
+    const accStr = f3 || '(Chưa xác định danh tính / Tài khoản ẩn danh)';
+    const descStr = f4 || '(Chưa điền mô tả chi tiết)';
+    const linkStr = f5 || '(Chưa đính kèm đường dẫn)';
 
     return '<!DOCTYPE html>' +
       '<html lang="vi">' +
       '<head>' +
       '<meta charset="utf-8">' +
-      '<title></title>' +
+      '<title>Biên Bản Ghi Nhận Bằng Chứng Bạo Lực Mạng – TDMU</title>' +
       '<style>' +
       '@page { size: A4 portrait; margin: 12mm 18mm 12mm 18mm; }' +
       'body { font-family: "Times New Roman", Times, serif; font-size: 13pt; line-height: 1.45; color: #000; margin: 0; padding: 0; background: #fff; }' +
@@ -193,32 +193,6 @@
   }
 
   
-  const btnSample = $('#btnSampleCase');
-  const btnClear = $('#btnClearCase');
-
-  if (btnSample) {
-    btnSample.onclick = () => {
-      if ($('#f1')) $('#f1').value = 'Facebook (Trang cá nhân / Nhóm lớp / Diễn đàn Confession)';
-      const now = new Date();
-      if ($('#f2')) $('#f2').value = now.toLocaleString('vi-VN');
-      if ($('#f3')) $('#f3').value = 'Tài khoản ẩn danh "K.T.H" (Lớp D22CNTT01) & Nhóm chat sinh viên';
-      if ($('#f4')) $('#f4').value = 'Đối tượng liên tục đăng tải các bài viết cắt ghép hình ảnh cá nhân, kèm bình luận thô tục xúc phạm ngoại hình và đe dọa cô lập trong các buổi học nhóm học phần; gây áp lực tâm lý nặng nề và gián đoạn việc học tập trên lớp.';
-      if ($('#f5')) $('#f5').value = 'https://facebook.com/groups/tdmu.sinhvien.k22/posts/849201847192';
-      if (mkBtn) mkBtn.click();
-    };
-  }
-
-  if (btnClear) {
-    btnClear.onclick = () => {
-      if ($('#f2')) $('#f2').value = '';
-      if ($('#f3')) $('#f3').value = '';
-      if ($('#f4')) $('#f4').value = '';
-      if ($('#f5')) $('#f5').value = '';
-      const ev = $('#ev');
-      if (ev) ev.value = '';
-    };
-  }
-
   const printPdfBtn = $('#btnPrintPdf');
   if (printPdfBtn) {
     printPdfBtn.onclick = handlePrintPdf;

@@ -197,7 +197,7 @@
           danger: false,
           badge: 'Bảo vệ an toàn số',
           badgeClass: 'safe',
-          lesson: 'Phát tán thông tin cá nhân (Doxing) vi phạm nghiêm trọng Luật An ninh mạng và Nghị định 174/2026/NĐ-CP.'
+          lesson: 'Phát tán thông tin cá nhân (Doxing) vi phạm nghiêm trọng Luật An ninh mạng và Nghị định 15/2020/NĐ-CP & Nghị định 13/2023/NĐ-CP.'
         },
         {
           text: 'Tức giận đăng số điện thoại của đối phương lên mạng để trả đũa',
@@ -309,6 +309,7 @@
 
   let curSimIdx = 0;
   let simTimer = null;
+  let simResults = {};
 
   function renderSim() {
     if (simTimer) {
@@ -342,9 +343,10 @@
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'sim-choice-btn';
+      const letter = String.fromCharCode(65 + idx);
       btn.innerHTML = `
-        <span class="sim-badge ${c.badgeClass}">${c.badge}</span>
-        <span style="flex:1">${c.text}</span>
+        <span class="sim-badge" style="background:#F1F5F9;color:#334155;border:1px solid #CBD5E1;font-weight:700">Phương án ${letter}</span>
+        <span style="flex:1;text-align:left;line-height:1.5">${c.text}</span>
       `;
       btn.onclick = () => chooseSimOption(idx);
       choicesEl.appendChild(btn);
@@ -364,6 +366,21 @@
 
     if (!msgsEl || !choicesEl || !feedbackEl) return;
 
+    choicesEl.querySelectorAll('button').forEach((b, k) => {
+      b.disabled = true;
+      const opt = data.choices[k];
+      if (k === idx) {
+        b.style.borderColor = opt.danger ? '#EF4444' : '#10B981';
+        b.style.background = opt.danger ? '#FEF2F2' : '#ECFDF5';
+        b.innerHTML = `
+          <span class="sim-badge ${opt.badgeClass}">${opt.badge}</span>
+          <span style="flex:1;text-align:left;line-height:1.5;font-weight:600">${opt.text}</span>
+        `;
+      } else {
+        b.style.opacity = '0.6';
+      }
+    });
+
     msgsEl.innerHTML += `
       <div class="msg-bubble msg-outgoing">
         ${choice.text}
@@ -379,73 +396,114 @@
       `;
       msgsEl.scrollTop = msgsEl.scrollHeight;
 
-      let countdown = 3;
+      simResults[curSimIdx] = !choice.danger;
+      const correctCount = Object.values(simResults).filter(Boolean).length;
+      const isPass = correctCount >= 8;
+
+      const isLastSituation = (curSimIdx === SIM_DATA.length - 1);
       const nextIdx = (curSimIdx + 1) % SIM_DATA.length;
-
       feedbackEl.style.display = 'block';
-      feedbackEl.innerHTML = `
-        <div style="background: ${choice.danger ? 'var(--hl)' : 'rgba(16, 185, 129, 0.1)'}; border: 1.5px solid ${choice.danger ? 'var(--rs)' : '#10B981'}; border-radius: 14px; padding: 16px;">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
-            <h4 style="margin: 0; color: ${choice.danger ? 'var(--rs)' : '#059669'}; font-family: 'Be Vietnam Pro', sans-serif; display:flex; align-items:center; gap:6px;">
-              ${choice.badge}
-            </h4>
-            <span id="simTimerBadge" style="font-size:.78rem;background:var(--so);color:var(--tl);padding:2px 10px;border-radius:99px;font-weight:600">
-              Tự động chuyển tiếp sau ${countdown}s...
-            </span>
+
+      if (isLastSituation) {
+        feedbackEl.innerHTML = `
+          <div style="background: ${choice.danger ? 'var(--hl)' : 'rgba(16, 185, 129, 0.1)'}; border: 1.5px solid ${choice.danger ? 'var(--rs)' : '#10B981'}; border-radius: 14px; padding: 16px; margin-bottom: 14px">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+              <h4 style="margin: 0; color: ${choice.danger ? 'var(--rs)' : '#059669'}; font-family: 'Be Vietnam Pro', sans-serif; display:flex; align-items:center; gap:6px;">
+                ${choice.danger ? '✕' : '✓'} ${choice.badge} ${choice.danger ? '(Lựa chọn Chưa an toàn)' : '(Lựa chọn Chuẩn mực)'}
+              </h4>
+              <span style="font-size:.78rem;background:${choice.danger ? '#FEE2E2' : '#ECFDF5'};color:${choice.danger ? '#DC2626' : '#059669'};padding:3px 12px;border-radius:99px;font-weight:700">
+                Xử lý đúng: ${correctCount}/10 tình huống
+              </span>
+            </div>
+            <p style="margin: 0 0 12px; font-size: .9rem; color: var(--ink); line-height: 1.6;">
+              ${choice.lesson}
+            </p>
           </div>
-          <p style="margin: 0 0 12px; font-size: .9rem; color: var(--ink); line-height: 1.6;">
-            ${choice.lesson}
-          </p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button type="button" class="btn btn-sm" id="simNextInlineBtn" style="font-size:.85rem;padding:7px 16px">
-              Chuyển ngay sang tình huống tiếp theo (${nextIdx + 1}/10) →
-            </button>
-            <button type="button" class="btn o btn-sm" id="simRetryInlineBtn" style="font-size:.85rem;padding:7px 14px">
-              Dừng lại & Thử lại tình huống này
-            </button>
+          ${isPass ? `
+            <div style="background:#FFFFFF;border:2px solid #10B981;border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 8px 24px -4px rgba(16,185,129,.2)">
+              <div style="width:54px;height:54px;background:#D1FAE5;color:#059669;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;font-size:1.6rem">✓</div>
+              <h3 style="margin:0 0 8px;font-size:1.25rem;color:#065F46">Xuất Sắc! Bạn Đã Xử Lý Đúng ${correctCount}/10 Tình Huống Thực Tế</h3>
+              <p style="margin:0 0 18px;font-size:.9rem;color:#047857;line-height:1.6">
+                Bạn đã nắm vững các phản xạ an toàn số, biết cách tự bảo vệ bản thân và đồng hành cùng bạn bè xây dựng môi trường mạng văn minh tại Đại học Thủ Dầu Một.
+              </p>
+              <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+                <a href="index.html" class="btn" style="padding:9px 20px;font-size:.9rem">
+                  ← Về Trang Chủ Đề Tài
+                </a>
+                <a href="nhan-dien.html" class="btn" style="background:#075A94;border-color:#075A94;color:#fff;padding:9px 20px;font-size:.9rem">
+                  Làm Bài Trắc Nghiệm Cấp Chứng Nhận →
+                </a>
+                <button type="button" class="btn o" id="simRestartBtn" style="padding:9px 18px;font-size:.9rem">
+                  ↺ Luyện tập lại từ Tình huống 1
+                </button>
+              </div>
+            </div>
+          ` : `
+            <div style="background:#FFFBEB;border:2px solid #F59E0B;border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 8px 24px -4px rgba(245,158,11,.18)">
+              <div style="width:54px;height:54px;background:#FEF3C7;color:#D97706;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;font-size:1.6rem">⚠️</div>
+              <h3 style="margin:0 0 8px;font-size:1.25rem;color:#B45309">Chưa Đạt Yêu Cầu! Bạn Chỉ Xử Lý Đúng ${correctCount}/10 Tình Huống</h3>
+              <p style="margin:0 0 18px;font-size:.9rem;color:#92400E;line-height:1.6">
+                Bạn đã chọn một số phương án đối đầu tiêu cực hoặc thờ ơ vi phạm quy tắc ứng xử an toàn mạng. Cần đạt tối thiểu <b>8/10 tình huống đúng</b> để nắm vững kỹ năng.
+              </p>
+              <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+                <button type="button" class="btn" id="simRestartBtn" style="background:#D97706;border-color:#D97706;color:#fff;padding:9px 22px;font-size:.9rem;font-weight:600">
+                  ↺ Rèn luyện lại từ Tình huống 1 (Cần ≥ 8/10)
+                </button>
+                <a href="index.html" class="btn o" style="padding:9px 20px;font-size:.9rem">
+                  ← Về Trang Chủ Đề Tài
+                </a>
+              </div>
+            </div>
+          `}
+        `;
+
+        const restartBtn = document.getElementById('simRestartBtn');
+        if (restartBtn) {
+          restartBtn.onclick = () => {
+            curSimIdx = 0;
+            simResults = {};
+            renderSim();
+          };
+        }
+      } else {
+        feedbackEl.innerHTML = `
+          <div style="background: ${choice.danger ? 'var(--hl)' : 'rgba(16, 185, 129, 0.1)'}; border: 1.5px solid ${choice.danger ? 'var(--rs)' : '#10B981'}; border-radius: 14px; padding: 16px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+              <h4 style="margin: 0; color: ${choice.danger ? 'var(--rs)' : '#059669'}; font-family: 'Be Vietnam Pro', sans-serif; display:flex; align-items:center; gap:6px;">
+                ${choice.danger ? '✕' : '✓'} ${choice.badge} ${choice.danger ? '(Chưa an toàn)' : '(Chuẩn mực)'}
+              </h4>
+            </div>
+            <p style="margin: 0 0 12px; font-size: .9rem; color: var(--ink); line-height: 1.6;">
+              ${choice.lesson}
+            </p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button type="button" class="btn btn-sm" id="simNextInlineBtn" style="font-size:.85rem;padding:7px 16px">
+                Chuyển sang tình huống tiếp theo (${nextIdx + 1}/10) →
+              </button>
+              <button type="button" class="btn o btn-sm" id="simRetryInlineBtn" style="font-size:.85rem;padding:7px 14px">
+                ↺ Thử lại tình huống này
+              </button>
+            </div>
           </div>
-        </div>
-      `;
+        `;
 
-      const timerBadge = document.getElementById('simTimerBadge');
-      simTimer = setInterval(() => {
-        countdown--;
-        if (timerBadge) {
-          timerBadge.textContent = 'Tự động chuyển tiếp sau ' + countdown + 's...';
+        const nextInlineBtn = document.getElementById('simNextInlineBtn');
+        if (nextInlineBtn) {
+          nextInlineBtn.onclick = () => {
+            curSimIdx = nextIdx;
+            renderSim();
+          };
         }
-        if (countdown <= 0) {
-          clearInterval(simTimer);
-          simTimer = null;
-          curSimIdx = nextIdx;
-          renderSim();
+
+        const retryInlineBtn = document.getElementById('simRetryInlineBtn');
+        if (retryInlineBtn) {
+          retryInlineBtn.onclick = () => {
+            delete simResults[curSimIdx];
+            renderSim();
+          };
         }
-      }, 1000);
-
-      const nextInlineBtn = document.getElementById('simNextInlineBtn');
-      if (nextInlineBtn) {
-        nextInlineBtn.onclick = () => {
-          if (simTimer) {
-            clearInterval(simTimer);
-            simTimer = null;
-          }
-          curSimIdx = nextIdx;
-          renderSim();
-        };
       }
-
-      const retryInlineBtn = document.getElementById('simRetryInlineBtn');
-      if (retryInlineBtn) {
-        retryInlineBtn.onclick = () => {
-          if (simTimer) {
-            clearInterval(simTimer);
-            simTimer = null;
-          }
-          renderSim();
-        };
-      }
-
-      choicesEl.querySelectorAll('button').forEach(b => b.disabled = true);
-    }, 350);
+    }, 250);
   }
 
   const nextSimBtn = document.getElementById('nextSimBtn');
@@ -456,6 +514,7 @@
         simTimer = null;
       }
       curSimIdx = (curSimIdx + 1) % SIM_DATA.length;
+      if (curSimIdx === 0) simResults = {};
       renderSim();
     });
   }
@@ -585,6 +644,24 @@
   const printCertBtn = document.getElementById('printCertBtn');
 
   function updateCert() {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const pName = urlParams.get('name');
+      const pId = urlParams.get('id');
+      const pDept = urlParams.get('dept');
+      const currentUser = (window.TDMU_AUTH && window.TDMU_AUTH.getCurrentUser) ? window.TDMU_AUTH.getCurrentUser() : null;
+
+      if (pName && certNameInput && !certNameInput.value) {
+        certNameInput.value = pName;
+        if (pId && certIdInput && !certIdInput.value) certIdInput.value = pId;
+        if (pDept && certDeptInput && !certDeptInput.value) certDeptInput.value = pDept;
+      } else if (currentUser && certNameInput && !certNameInput.value) {
+        certNameInput.value = currentUser.name;
+        if (certIdInput && !certIdInput.value) certIdInput.value = currentUser.id;
+        if (certDeptInput && !certDeptInput.value) certDeptInput.value = currentUser.dept || 'Trường Đại học Thủ Dầu Một';
+      }
+    } catch (e) {}
+
     const rawName = certNameInput ? certNameInput.value.trim() : '';
     const rawId = certIdInput ? certIdInput.value.trim() : '';
     const rawDept = certDeptInput ? certDeptInput.value.trim() : '';
