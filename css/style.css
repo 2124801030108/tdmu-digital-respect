@@ -804,7 +804,7 @@ mark {
 
 .hint { font-size: .82rem; color: var(--mu); line-height: 1.6; }
 
-textarea, input, select {
+textarea, input:not([type="radio"]):not([type="checkbox"]), select {
   width: 100%;
   font: inherit;
   color: var(--ink);
@@ -817,11 +817,20 @@ textarea, input, select {
   appearance: none;
 }
 
-textarea { min-height: 120px; resize: vertical; }
-label { font-weight: 600; font-size: .9rem; display: block; margin: 16px 0 6px; }
-label:first-child { margin-top: 0; }
+input[type="radio"], input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  margin: 2px 8px 0 0;
+  accent-color: var(--tl);
+  cursor: pointer;
+  -webkit-appearance: auto;
+  appearance: auto;
+  flex-shrink: 0;
+}
 
-textarea:focus, input:focus, select:focus {
+textarea:focus, input:not([type="radio"]):not([type="checkbox"]):focus, select:focus {
   border-color: var(--tl);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--tl) 15%, transparent);
   outline: 0;
@@ -1937,24 +1946,42 @@ footer a:hover { color: #fff; text-decoration: underline; }
 
 .audit-label {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: .86rem;
+  align-items: center;
+  gap: 12px;
+  font-size: .88rem;
   color: var(--ink);
   cursor: pointer;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  transition: background var(--transition), border-color var(--transition);
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--ln);
+  background: var(--sf);
+  transition: all var(--transition);
+  user-select: none;
 }
 
 .audit-label:hover {
   background: var(--so);
+  border-color: var(--tl);
+}
+
+.audit-label:has(input:checked), .audit-label.selected {
+  background: color-mix(in srgb, var(--tl) 10%, #FFFFFF);
+  border-color: var(--tl);
+  box-shadow: 0 0 0 1px var(--tl);
+  font-weight: 600;
 }
 
 .audit-label input[type="radio"] {
-  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
   accent-color: var(--tl);
+  -webkit-appearance: auto;
+  appearance: auto;
+  cursor: pointer;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 .audit-score-box {

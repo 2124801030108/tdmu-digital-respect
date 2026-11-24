@@ -261,26 +261,29 @@
 
     const currentUrl = encodeURIComponent(window.location.pathname.split('/').pop() || 'index.html');
     const fName = featureName || 'chức năng này';
+    const isSos = /sos|khẩn cấp|đường dây nóng|gọi/i.test(fName);
 
     modal.innerHTML = `
-      <div style="background:#ffffff;border-radius:20px;max-width:480px;width:100%;padding:28px 24px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);border:2px solid #0B7BC4;position:relative;animation:pop-msg .28s cubic-bezier(0.34, 1.56, 0.64, 1)">
-        <div style="width:60px;height:60px;border-radius:50%;background:#E1F0FB;color:#075A94;display:grid;place-items:center;margin:0 auto 16px;font-size:1.8rem;box-shadow:0 4px 14px rgba(11,123,196,0.18)">
-          🔒
+      <div style="background:#ffffff;border-radius:20px;max-width:460px;width:100%;padding:32px 26px 22px;text-align:center;box-shadow:0 20px 50px rgba(11,37,64,0.22);border:1.5px solid ${isSos ? '#FCA5A5' : '#CBD5E1'};position:relative;animation:pop-msg .28s cubic-bezier(0.34, 1.56, 0.64, 1)">
+        <div style="width:62px;height:62px;border-radius:50%;background:${isSos ? '#FEE2E2' : '#F0F7FD'};color:${isSos ? '#DC2626' : '#075A94'};border:2px solid ${isSos ? '#FECACA' : '#BAE6FD'};display:grid;place-items:center;margin:0 auto 16px;font-size:1.8rem;box-shadow:0 4px 14px ${isSos ? 'rgba(220,38,38,0.15)' : 'rgba(7,90,148,0.12)'}">
+          ${isSos ? '🚨' : '🔒'}
         </div>
-        <h3 style="margin:0 0 10px;font-size:1.25rem;color:#0B2540;font-family:'Be Vietnam Pro',sans-serif">
-          Yêu cầu Đăng nhập Tài khoản
+        <h3 style="margin:0 0 10px;font-size:1.25rem;color:${isSos ? '#991B1B' : '#0B2540'};font-weight:700;font-family:'Be Vietnam Pro',sans-serif">
+          ${isSos ? 'Yêu cầu Đăng nhập để sử dụng SOS Khẩn cấp' : 'Yêu cầu Đăng nhập Tài khoản'}
         </h3>
         <p style="margin:0 0 20px;font-size:.92rem;color:#4A6580;line-height:1.6">
-          Bạn cần đăng nhập tài khoản Sinh viên TDMU để sử dụng <b>${fName}</b>, ghi nhận điểm rèn luyện (+5 ĐRL) và lưu trữ kết quả.
+          ${isSos 
+            ? `Hệ thống yêu cầu xác thực tài khoản sinh viên TDMU trước khi sử dụng <b>${fName}</b> nhằm ngăn chặn tình trạng quấy rối phá hoại đường dây nóng và bảo đảm công tác cứu trợ diễn ra chính xác, an toàn.`
+            : `Bạn cần đăng nhập tài khoản Sinh viên TDMU để sử dụng <b>${fName}</b>, ghi nhận điểm rèn luyện (+05 ĐRL) và lưu trữ kết quả.`}
         </p>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <a href="dang-nhap.html?redirect=${currentUrl}" class="btn" style="background:#075A94;border-color:#075A94;color:#fff;padding:12px;font-size:.95rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px">
-            🔑 Đăng nhập ngay
+          <a href="dang-nhap.html?redirect=${currentUrl}" class="btn" style="background:${isSos ? '#DC2626' : '#075A94'};border:none;color:#fff;padding:12px;font-size:.95rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;box-shadow:0 4px 14px ${isSos ? 'rgba(220,38,38,0.25)' : 'rgba(7,90,148,0.25)'}">
+            ${isSos ? '🔑 Đăng nhập để gọi SOS ngay' : '🔑 Đăng nhập tài khoản ngay'}
           </a>
-          <a href="dang-ky.html?redirect=${currentUrl}" class="btn o" style="padding:10px;font-size:.9rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px">
+          <a href="dang-ky.html?redirect=${currentUrl}" class="btn o" style="background:#ffffff;border:1.5px solid ${isSos ? '#DC2626' : '#075A94'};color:${isSos ? '#DC2626' : '#075A94'};padding:10px;font-size:.9rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:10px">
             📝 Chưa có tài khoản? Đăng ký mới
           </a>
-          <button type="button" id="closeLoginModalBtn" style="background:none;border:none;color:#94A3B8;font-size:.85rem;cursor:pointer;padding:6px;margin-top:4px">
+          <button type="button" id="closeLoginModalBtn" style="background:none;border:none;color:#64748B;font-size:.85rem;cursor:pointer;padding:6px;margin-top:4px">
             Để sau (Đóng lại)
           </button>
         </div>

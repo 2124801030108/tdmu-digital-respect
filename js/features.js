@@ -6,6 +6,9 @@
   openSosBtns.forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Liên hệ Đường dây nóng & Cứu trợ SOS Khẩn cấp')) {
+        return;
+      }
       if (sosModal) sosModal.classList.add('active');
     });
   });
@@ -21,6 +24,25 @@
       if (e.target === sosModal) sosModal.classList.remove('active');
     });
   }
+
+  document.querySelectorAll('.btn-sos-call').forEach(btn => {
+    btn.addEventListener('click', e => {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Gọi điện Đường dây nóng Cứu trợ SOS')) {
+        e.preventDefault();
+        return;
+      }
+    });
+  });
+
+  document.addEventListener('click', e => {
+    const telLink = e.target.closest('a[href^="tel:"]');
+    if (telLink) {
+      if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Gọi điện Đường dây nóng Cứu trợ SOS')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }
+  }, true);
 
   const posterModal = document.getElementById('posterModal');
   const posterModalImg = document.getElementById('posterModalImg');

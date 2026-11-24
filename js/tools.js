@@ -454,6 +454,21 @@
   const auditMeterBar = document.getElementById('auditMeterBar');
   const auditAdviceList = document.getElementById('auditAdviceList');
 
+  const auditRadios = document.querySelectorAll('.audit-label input[type="radio"]');
+  function updateAuditLabelStyles() {
+    auditRadios.forEach(r => {
+      const parent = r.closest('.audit-label');
+      if (parent) {
+        if (r.checked) parent.classList.add('selected');
+        else parent.classList.remove('selected');
+      }
+    });
+  }
+  auditRadios.forEach(r => {
+    r.addEventListener('change', updateAuditLabelStyles);
+  });
+  updateAuditLabelStyles();
+
   if (runAuditBtn && auditScoreBox) {
     runAuditBtn.addEventListener('click', () => {
       if (window.TDMU_AUTH && !window.TDMU_AUTH.requireLogin('Công cụ Rà soát 4 lớp bảo vệ an toàn số')) {
